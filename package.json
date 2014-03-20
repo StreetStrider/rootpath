@@ -1,0 +1,17 @@
+{
+	"name": "rootpath",
+	"version": "1.0.0",
+	"description": "pivot for path hierarchy",
+
+	"keywords": [ "path", "resolve", "rootpath" ],
+
+	"author": "StreetStrider <teamfortresslife@gmail.com>",
+	"license": "MIT",
+	"private": true,
+
+	"main": "src/Rootpath",
+
+	"homepage":            "https://github.com/StreetStrider/rootpath",
+	"repository": { "url": "https://github.com/StreetStrider/rootpath.git", "type": "git" },
+	"bugs":       { "url": "https://github.com/StreetStrider/rootpath/issues" }
+}
