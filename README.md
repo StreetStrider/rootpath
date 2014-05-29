@@ -28,6 +28,9 @@ function App ()
 
   /* or even simpler */
   this.config   = require(this.rootpath('cfg/config.json'));
+
+  /* pass concretized rootpaths to subcomponents: */
+  this.someModel = new SomeModel(this.rootpath.partial('data/model'));
 }
 ```
 
