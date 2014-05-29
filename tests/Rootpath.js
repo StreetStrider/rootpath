@@ -57,6 +57,19 @@ describe('Rootpath', function ()
 				$expectRootpathFunction(rootpath);
 			}
 		});
+		it('can constructs upper level', function ()
+		{
+			{
+				var rootpath = new Rootpath('..');
+				expect(rootpath.path).toBe('/');
+				$expectRootpathFunction(rootpath);
+			}
+			{
+				var rootpath = new Rootpath('../');
+				expect(rootpath.path).toBe('/');
+				$expectRootpathFunction(rootpath);
+			}
+		});
 		it('can constructs with multiple arguments', function ()
 		{
 			{
@@ -101,6 +114,18 @@ describe('Rootpath', function ()
 			}
 
 		});
+		it('can resolve upper level', function ()
+		{
+			var rootpath = new Rootpath;
+			{
+				expect(rootpath.resolve('..')).toBe('/');
+				expect(rootpath.resolve('../')).toBe('/');
+			}
+			{
+				expect(rootpath('..')).toBe('/');
+				expect(rootpath('../')).toBe('/');
+			}
+		});
 		it('can resolve with no multiple arguments', function ()
 		{
 			var rootpath = new Rootpath;
@@ -133,6 +158,19 @@ describe('Rootpath', function ()
 			{
 				var rootpath = Rootpath('a/').partial('b/');
 				expect(rootpath.path).toBe('/tmp/a/b');
+				$expectRootpathFunction(rootpath);
+			}
+		});
+		it('can partial upper level', function ()
+		{
+			{
+				var rootpath = Rootpath('a').partial('..');
+				expect(rootpath.path).toBe('/tmp');
+				$expectRootpathFunction(rootpath);
+			}
+			{
+				var rootpath = Rootpath('a/').partial('../');
+				expect(rootpath.path).toBe('/tmp');
 				$expectRootpathFunction(rootpath);
 			}
 		});
