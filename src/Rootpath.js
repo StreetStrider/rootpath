@@ -6,40 +6,19 @@ module.exports = Rootpath;
 var
 	path = require('path');
 
-function Rootpath (pathElement /* , ... */)
+function Rootpath (/* [path, ...] */)
 {
-	var paths, _path;
+	var
+		_path    = path.resolve.apply(null, arguments);
+		_resolve = path.resolve.bind(null, _path);
 
-	paths = toArray(arguments);
-
-	if (! paths.length)
+	var rootpath = function rootpath (/* [path, ...] */)
 	{
-		paths = [ process.cwd() ];
-	}
+		return _resolve.apply(null, arguments);
+	};
 
-	_path = join(paths);
-	_path = path.resolve(_path);
+	rootpath.path    = _path;
+	rootpath.resolve = _resolve;
 
-	this.path = _path;
-}
-
-Rootpath.prototype.resolve = function rootpath__resolve (pathElement /* ... */)
-{
-	return path.resolve(this.path, join(toArray(arguments)));
-};
-
-
-/* join many */
-function join (pathElements)
-{
-	return path.join.apply(path, pathElements);
-}
-
-/* arguments -> array */
-{
-	function toArray (seq)
-	{
-		return _slice.call(seq, 0);
-	}
-	var _slice = Array.prototype.slice;
+	return rootpath;
 }
