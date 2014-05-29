@@ -114,6 +114,42 @@ describe('Rootpath', function ()
 			}
 		});
 	});
+
+	describe('Rootpath#partial()', function ()
+	{
+		it('can partial with no arguments', function ()
+		{
+			var rootpath = Rootpath('a').partial();
+			expect(rootpath.path).toBe('/tmp/a');
+			$expectRootpathFunction(rootpath);
+		});
+		it('can partial with single argument', function ()
+		{
+			{
+				var rootpath = Rootpath('a').partial('b');
+				expect(rootpath.path).toBe('/tmp/a/b');
+				$expectRootpathFunction(rootpath);
+			}
+			{
+				var rootpath = Rootpath('a/').partial('b/');
+				expect(rootpath.path).toBe('/tmp/a/b');
+				$expectRootpathFunction(rootpath);
+			}
+		});
+		it('can partial with multiple arguments', function ()
+		{
+			{
+				var rootpath = Rootpath('a').partial('b', 'c');
+				expect(rootpath.path).toBe('/tmp/a/b/c');
+				$expectRootpathFunction(rootpath);
+			}
+			{
+				var rootpath = Rootpath('a/').partial('b', 'c/');
+				expect(rootpath.path).toBe('/tmp/a/b/c');
+				$expectRootpathFunction(rootpath);
+			}
+		});
+	});
 });
 
 function $expectRootpathFunction (rootpath)

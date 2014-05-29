@@ -19,6 +19,12 @@ function Rootpath (/* [path, ...] */)
 
 	rootpath.path    = _path;
 	rootpath.resolve = _resolve;
+	rootpath.partial = partial;
 
 	return rootpath;
+
+	function partial ()
+	{
+		return Rootpath(rootpath.apply(null, arguments));
+	}
 }

@@ -31,5 +31,18 @@ function App ()
 }
 ```
 
+# API
+Behavior of function is similar to std `path#resolve`.
+It will apply `process.cwd()` if path would not absolute after all.
+
+```javascript
+new Rootpath(), Rootpath() -- rootpath with process.cwd() root.
+new Rootpath(path, ...), Rootpath(path, ...) -- rootpath with given path root.
+
+rootpath.resolve(path, ...), rootpath(path, ...) -- resolve paths relative to root.
+
+rootpath.partial(path, ...) -- create new rootpath relative to root + given path.
+```
+
 # license
 MIT. © StreetStrider, 2013 — 2014.
