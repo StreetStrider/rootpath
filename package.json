@@ -10,8 +10,17 @@
 	"private": true,
 
 	"main": "src/Rootpath",
+	"scripts":
+	{
+		"test": "run/tests"
+	},
 
 	"homepage":            "https://github.com/StreetStrider/rootpath",
 	"repository": { "url": "https://github.com/StreetStrider/rootpath.git", "type": "git" },
-	"bugs":       { "url": "https://github.com/StreetStrider/rootpath/issues" }
+	"bugs":       { "url": "https://github.com/StreetStrider/rootpath/issues" },
+
+	"devDependencies":
+	{
+		"jasmine-node": "~2"
+	}
 }
