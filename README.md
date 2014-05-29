@@ -34,6 +34,13 @@ function App ()
 }
 ```
 
+# install
+[The registry](http://npmjs.org/) already has another package `rootpath`.
+So, to install this package one must use GitHub-shortcut:
+```
+npm install StreetStrider/rootpath
+```
+
 # API
 Behavior of function is similar to std `path#resolve`.
 It will apply `process.cwd()` if path would not absolute after all.
