@@ -101,7 +101,7 @@ describe('Rootpath', function ()
 			expect(rootpath.resolve()).toBe('/tmp');
 			expect(rootpath()).toBe('/tmp');
 		});
-		it('can resolve with no single argument', function ()
+		it('can resolve with single argument', function ()
 		{
 			var rootpath = new Rootpath;
 			{
@@ -126,7 +126,7 @@ describe('Rootpath', function ()
 				expect(rootpath('../')).toBe('/');
 			}
 		});
-		it('can resolve with no multiple arguments', function ()
+		it('can resolve with multiple arguments', function ()
 		{
 			var rootpath = new Rootpath;
 			{
