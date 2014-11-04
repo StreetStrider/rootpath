@@ -188,6 +188,20 @@ describe('Rootpath', function ()
 			}
 		});
 	});
+
+	describe('Rootpath issues', function ()
+	{
+		it('does not mess up with multiple instances', function ()
+		{
+			var
+				X = Rootpath('x'),
+				x = X();
+
+			var Y = Rootpath('y');
+
+			expect(x).toBe(X());
+		});
+	});
 });
 
 function $expectRootpathFunction (rootpath)

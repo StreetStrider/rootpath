@@ -9,7 +9,7 @@ var
 function Rootpath (/* [path, ...] */)
 {
 	var
-		_path    = path.resolve.apply(null, arguments);
+		_path    = path.resolve.apply(null, arguments),
 		_resolve = path.resolve.bind(null, _path);
 
 	var rootpath = function rootpath (/* [path, ...] */)
