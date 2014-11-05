@@ -96,6 +96,22 @@ describe('Rootpath', function ()
 		})
 	});
 
+	describe('Rootpath#path', function ()
+	{
+		it('non-writeable', function ()
+		{
+			var
+				rootpath = Rootpath(),
+				path = rootpath.path;
+
+			$expectRootpathFunction(rootpath);
+
+			rootpath.path = path + 'something';
+
+			eq(rootpath.path, path);
+		});
+	});
+
 	describe('Rootpath#resolve(), rootpath()', function ()
 	{
 		it('can resolve with no arguments', function ()

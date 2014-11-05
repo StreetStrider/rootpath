@@ -17,7 +17,8 @@ function Rootpath (/* [path, ...] */)
 		return _resolve.apply(null, arguments);
 	};
 
-	rootpath.path    = _path;
+	Object.defineProperty(rootpath, 'path', { value: _path });
+
 	rootpath.resolve = _resolve;
 	rootpath.partial = partial;
 
