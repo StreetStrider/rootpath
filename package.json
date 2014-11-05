@@ -12,7 +12,7 @@
 	"main": "src/Rootpath",
 	"scripts":
 	{
-		"test": "run/tests"
+		"test": "mocha --recursive tests/"
 	},
 
 	"homepage":            "https://github.com/StreetStrider/rootpath",
@@ -21,6 +21,6 @@
 
 	"devDependencies":
 	{
-		"jasmine-node": "~2"
+		"mocha": "~2"
 	}
 }

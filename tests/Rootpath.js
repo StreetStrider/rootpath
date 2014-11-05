@@ -3,6 +3,8 @@
 
 var Rootpath = require('../');
 
+var eq = require('assert').deepEqual;
+
 describe('Rootpath', function ()
 {
 	var dir;
@@ -24,12 +26,12 @@ describe('Rootpath', function ()
 		{
 			{
 				var rootpath = new Rootpath;
-				expect(rootpath.path).toBe('/tmp');
+				eq(rootpath.path, '/tmp');
 				$expectRootpathFunction(rootpath);
 			}
 			{
 				var rootpath = Rootpath();
-				expect(rootpath.path).toBe('/tmp');
+				eq(rootpath.path, '/tmp');
 				$expectRootpathFunction(rootpath);
 			}
 		});
@@ -37,23 +39,23 @@ describe('Rootpath', function ()
 		{
 			{
 				var rootpath = new Rootpath('a');
-				expect(rootpath.path).toBe('/tmp/a');
+				eq(rootpath.path, '/tmp/a');
 				$expectRootpathFunction(rootpath);
 			}
 			{
 				var rootpath = Rootpath('a');
-				expect(rootpath.path).toBe('/tmp/a');
+				eq(rootpath.path, '/tmp/a');
 				$expectRootpathFunction(rootpath);
 			}
 
 			{
 				var rootpath = new Rootpath('a/');
-				expect(rootpath.path).toBe('/tmp/a');
+				eq(rootpath.path, '/tmp/a');
 				$expectRootpathFunction(rootpath);
 			}
 			{
 				var rootpath = Rootpath('a/');
-				expect(rootpath.path).toBe('/tmp/a');
+				eq(rootpath.path, '/tmp/a');
 				$expectRootpathFunction(rootpath);
 			}
 		});
@@ -61,12 +63,12 @@ describe('Rootpath', function ()
 		{
 			{
 				var rootpath = new Rootpath('..');
-				expect(rootpath.path).toBe('/');
+				eq(rootpath.path, '/');
 				$expectRootpathFunction(rootpath);
 			}
 			{
 				var rootpath = new Rootpath('../');
-				expect(rootpath.path).toBe('/');
+				eq(rootpath.path, '/');
 				$expectRootpathFunction(rootpath);
 			}
 		});
@@ -74,20 +76,20 @@ describe('Rootpath', function ()
 		{
 			{
 				var rootpath = new Rootpath('a', 'b');
-				expect(rootpath.path).toBe('/tmp/a/b');
+				eq(rootpath.path, '/tmp/a/b');
 			}
 			{
 				var rootpath = Rootpath('a', 'b');
-				expect(rootpath.path).toBe('/tmp/a/b');
+				eq(rootpath.path, '/tmp/a/b');
 			}
 
 			{
 				var rootpath = new Rootpath('a/', 'b/');
-				expect(rootpath.path).toBe('/tmp/a/b');
+				eq(rootpath.path, '/tmp/a/b');
 			}
 			{
 				var rootpath = Rootpath('a/', 'b/');
-				expect(rootpath.path).toBe('/tmp/a/b');
+				eq(rootpath.path, '/tmp/a/b');
 			}
 		})
 	});
@@ -98,19 +100,19 @@ describe('Rootpath', function ()
 		{
 			var rootpath = new Rootpath;
 
-			expect(rootpath.resolve()).toBe('/tmp');
-			expect(rootpath()).toBe('/tmp');
+			eq(rootpath.resolve(), '/tmp');
+			eq(rootpath(), '/tmp');
 		});
 		it('can resolve with single argument', function ()
 		{
 			var rootpath = new Rootpath;
 			{
-				expect(rootpath.resolve('abc')).toBe('/tmp/abc');
-				expect(rootpath.resolve('abc/')).toBe('/tmp/abc');
+				eq(rootpath.resolve('abc'), '/tmp/abc');
+				eq(rootpath.resolve('abc/'), '/tmp/abc');
 			}
 			{
-				expect(rootpath('abc')).toBe('/tmp/abc');
-				expect(rootpath('abc/')).toBe('/tmp/abc');
+				eq(rootpath('abc'), '/tmp/abc');
+				eq(rootpath('abc/'), '/tmp/abc');
 			}
 
 		});
@@ -118,24 +120,24 @@ describe('Rootpath', function ()
 		{
 			var rootpath = new Rootpath;
 			{
-				expect(rootpath.resolve('..')).toBe('/');
-				expect(rootpath.resolve('../')).toBe('/');
+				eq(rootpath.resolve('..'), '/');
+				eq(rootpath.resolve('../'), '/');
 			}
 			{
-				expect(rootpath('..')).toBe('/');
-				expect(rootpath('../')).toBe('/');
+				eq(rootpath('..'), '/');
+				eq(rootpath('../'), '/');
 			}
 		});
 		it('can resolve with multiple arguments', function ()
 		{
 			var rootpath = new Rootpath;
 			{
-				expect(rootpath.resolve('abc', 'def')).toBe('/tmp/abc/def');
-				expect(rootpath.resolve('abc/', 'def/')).toBe('/tmp/abc/def');
+				eq(rootpath.resolve('abc', 'def'), '/tmp/abc/def');
+				eq(rootpath.resolve('abc/', 'def/'), '/tmp/abc/def');
 			}
 			{
-				expect(rootpath('abc', 'def')).toBe('/tmp/abc/def');
-				expect(rootpath('abc/', 'def/')).toBe('/tmp/abc/def');
+				eq(rootpath('abc', 'def'), '/tmp/abc/def');
+				eq(rootpath('abc/', 'def/'), '/tmp/abc/def');
 			}
 		});
 	});
@@ -145,19 +147,19 @@ describe('Rootpath', function ()
 		it('can partial with no arguments', function ()
 		{
 			var rootpath = Rootpath('a').partial();
-			expect(rootpath.path).toBe('/tmp/a');
+			eq(rootpath.path, '/tmp/a');
 			$expectRootpathFunction(rootpath);
 		});
 		it('can partial with single argument', function ()
 		{
 			{
 				var rootpath = Rootpath('a').partial('b');
-				expect(rootpath.path).toBe('/tmp/a/b');
+				eq(rootpath.path, '/tmp/a/b');
 				$expectRootpathFunction(rootpath);
 			}
 			{
 				var rootpath = Rootpath('a/').partial('b/');
-				expect(rootpath.path).toBe('/tmp/a/b');
+				eq(rootpath.path, '/tmp/a/b');
 				$expectRootpathFunction(rootpath);
 			}
 		});
@@ -165,12 +167,12 @@ describe('Rootpath', function ()
 		{
 			{
 				var rootpath = Rootpath('a').partial('..');
-				expect(rootpath.path).toBe('/tmp');
+				eq(rootpath.path, '/tmp');
 				$expectRootpathFunction(rootpath);
 			}
 			{
 				var rootpath = Rootpath('a/').partial('../');
-				expect(rootpath.path).toBe('/tmp');
+				eq(rootpath.path, '/tmp');
 				$expectRootpathFunction(rootpath);
 			}
 		});
@@ -178,12 +180,12 @@ describe('Rootpath', function ()
 		{
 			{
 				var rootpath = Rootpath('a').partial('b', 'c');
-				expect(rootpath.path).toBe('/tmp/a/b/c');
+				eq(rootpath.path, '/tmp/a/b/c');
 				$expectRootpathFunction(rootpath);
 			}
 			{
 				var rootpath = Rootpath('a/').partial('b', 'c/');
-				expect(rootpath.path).toBe('/tmp/a/b/c');
+				eq(rootpath.path, '/tmp/a/b/c');
 				$expectRootpathFunction(rootpath);
 			}
 		});
@@ -199,13 +201,13 @@ describe('Rootpath', function ()
 
 			var Y = Rootpath('y');
 
-			expect(x).toBe(X());
+			eq(x, X());
 		});
 	});
 });
 
 function $expectRootpathFunction (rootpath)
 {
-	expect(typeof rootpath).toBe('function');
-	expect(rootpath.name).toBe('rootpath');
+	eq(typeof rootpath, 'function');
+	eq(rootpath.name, 'rootpath');
 }
