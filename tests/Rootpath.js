@@ -1,9 +1,11 @@
 
 
 
-var Rootpath = require('../');
+var
+	eq = require('assert').deepEqual,
 
-var eq = require('assert').deepEqual;
+	Rootpath = require('../');
+
 
 describe('Rootpath', function ()
 {
@@ -210,4 +212,12 @@ function $expectRootpathFunction (rootpath)
 {
 	eq(typeof rootpath, 'function');
 	eq(rootpath.name, 'rootpath');
+
+	eq(typeof rootpath.path, 'string');
+	eq(rootpath.path, rootpath());
+
+	eq(typeof rootpath.resolve, 'function');
+	eq(rootpath.path, rootpath.resolve());
+
+	eq(typeof rootpath.partial, 'function');
 }
