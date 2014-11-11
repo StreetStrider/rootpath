@@ -1,6 +1,0 @@
-#! /bin/sh
-
-cd $(dirname $0)
-cd '..'
-
-./node_modules/.bin/jasmine-node --matchAll tests/
