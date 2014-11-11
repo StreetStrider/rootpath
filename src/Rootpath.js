@@ -20,12 +20,10 @@ function Rootpath (/* [path, ...] */)
 	Object.defineProperty(rootpath, 'path', { value: _path });
 
 	rootpath.resolve = _resolve;
-	rootpath.partial = partial;
-
-	return rootpath;
-
-	function partial ()
+	rootpath.partial = function partial ()
 	{
 		return Rootpath(rootpath.apply(null, arguments));
-	}
+	};
+
+	return rootpath;
 }
