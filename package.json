@@ -12,7 +12,7 @@
 	"main": "src/Rootpath",
 	"scripts":
 	{
-		"test": "mocha --recursive tests/"
+		"test": "mocha --check-leaks --recursive tests/"
 	},
 
 	"homepage":            "https://github.com/StreetStrider/rootpath",
