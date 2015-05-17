@@ -24,6 +24,9 @@ function App ()
   this.config   = require(this.roopath.resolve('cfg', 'config.json');
 
   /* or */
+  this.config   = require(this.roopath.resolve([ 'cfg', 'config.json' ]);
+
+  /* or */
   this.config   = require(this.roopath.resolve('cfg/config.json');
 
   /* or even simpler */
@@ -35,15 +38,13 @@ function App ()
 ```
 
 # install
-[The registry](http://npmjs.org/) already has another package `rootpath`.
-So, to install this package one must use GitHub-shortcut:
+[The registry](http://npmjs.org/) already has another package `rootpath`. So, to install this package one must use GitHub-shortcut:
 ```
 npm install StreetStrider/rootpath
 ```
 
 # API
-Behavior of function is similar to std `path#resolve`.
-It will apply `process.cwd()` if path would not absolute after all.
+Behavior of function is similar to std `path#resolve`. In addition it also flattens any arrays found in arguments. It will resolve path relative to `process.cwd()` if path would not absolute after all computations.
 
 ```javascript
 new Rootpath(), Rootpath() -- rootpath with process.cwd() root.
@@ -55,4 +56,4 @@ rootpath.partial(path, ...) -- create new rootpath relative to root + given path
 ```
 
 # license
-MIT. © StreetStrider, 2013 — 2014.
+MIT. © StreetStrider, 2013 — 2015.
