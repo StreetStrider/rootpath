@@ -94,6 +94,26 @@ describe('Rootpath', function ()
 				eq(rootpath.path, '/tmp/a/b');
 			}
 		})
+		it('can constructs with non-flat arguments', function ()
+		{
+			{
+				var rootpath = new Rootpath('a', [ 'b', 'c' ], [ 'd' ]);
+				eq(rootpath.path, '/tmp/a/b/c/d');
+			}
+			{
+				var rootpath = Rootpath('a', [ 'b', 'c' ], [ 'd' ]);
+				eq(rootpath.path, '/tmp/a/b/c/d');
+			}
+
+			{
+				var rootpath = new Rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]]);
+				eq(rootpath.path, '/tmp/a/b/c/d');
+			}
+			{
+				var rootpath = Rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]]);
+				eq(rootpath.path, '/tmp/a/b/c/d');
+			}
+		});
 	});
 
 	describe('Rootpath#path', function ()
@@ -158,6 +178,22 @@ describe('Rootpath', function ()
 				eq(rootpath('abc/', 'def/'), '/tmp/abc/def');
 			}
 		});
+		it('can resolve with non-flat arguments', function ()
+		{
+			var rootpath = new Rootpath;
+			{
+				eq(rootpath.resolve('a', [ 'b' ], [ 'c', 'd' ]), '/tmp/a/b/c/d');
+			}
+			{
+				eq(rootpath('a', [ 'b' ], [ 'c', 'd' ]), '/tmp/a/b/c/d');
+			}
+			{
+				eq(rootpath.resolve('a', [ 'b', [ 'c' ]], [[ 'd' ]]), '/tmp/a/b/c/d');
+			}
+			{
+				eq(rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]]), '/tmp/a/b/c/d');
+			}
+		});
 	});
 
 	describe('Rootpath#partial()', function ()
@@ -204,6 +240,29 @@ describe('Rootpath', function ()
 			{
 				var rootpath = Rootpath('a/').partial('b', 'c/');
 				eq(rootpath.path, '/tmp/a/b/c');
+				$expectRootpathFunction(rootpath);
+			}
+		});
+		it('can partial with non-flat arguments', function ()
+		{
+			{
+				var rootpath = Rootpath().partial('a', [ 'b', 'c' ], 'd');
+				eq(rootpath.path, '/tmp/a/b/c/d');
+				$expectRootpathFunction(rootpath);
+			}
+			{
+				var rootpath = Rootpath().partial('a', [ 'b', 'c' ], 'd/');
+				eq(rootpath.path, '/tmp/a/b/c/d');
+				$expectRootpathFunction(rootpath);
+			}
+			{
+				var rootpath = Rootpath().partial('a', [ 'b', [ 'c' ]], [[ 'd' ]]);
+				eq(rootpath.path, '/tmp/a/b/c/d');
+				$expectRootpathFunction(rootpath);
+			}
+			{
+				var rootpath = Rootpath().partial('a', [ 'b', [ 'c' ]], [[ 'd/' ]]);
+				eq(rootpath.path, '/tmp/a/b/c/d');
 				$expectRootpathFunction(rootpath);
 			}
 		});

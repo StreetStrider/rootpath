@@ -1,29 +1,35 @@
 
 
 
-module.exports = Rootpath;
-
-var
-	path = require('path');
-
-function Rootpath (/* [path, ...] */)
+module.exports = function Rootpath (/* [path, or path[], ...] */)
 {
-	var
-		_path    = path.resolve.apply(null, arguments),
-		_resolve = path.resolve.bind(null, _path);
+	var root = flatres(arguments);
 
-	var rootpath = function rootpath (/* [path, ...] */)
+	var rootpath = function rootpath (/* [path, or path[], ...] */)
 	{
-		return _resolve.apply(null, arguments);
-	};
+		return flatres(root, arguments);
+	}
 
-	Object.defineProperty(rootpath, 'path', { value: _path });
+	Object.defineProperty(rootpath, 'path', { value: root });
 
-	rootpath.resolve = _resolve;
-	rootpath.partial = function partial ()
+	rootpath.resolve = function resolve (/* [path, or path[], ...] */)
 	{
-		return Rootpath(rootpath.apply(null, arguments));
-	};
+		return rootpath(arguments);
+	}
+	rootpath.partial = function partial (/* [path, or path[], ...] */)
+	{
+		return Rootpath(rootpath(arguments));
+	}
 
 	return rootpath;
+}
+
+
+var
+	path = require('path'),
+	flat = require('lodash.flattendeep');
+
+function flatres ()
+{
+	return path.resolve.apply(null, flat(arguments));
 }
