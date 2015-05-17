@@ -236,4 +236,5 @@ function $expectRootpathFunction (rootpath)
 	eq(rootpath.path, rootpath.resolve());
 
 	eq(typeof rootpath.partial, 'function');
+	eq(rootpath.partial.name, 'partial');
 }
