@@ -18,7 +18,8 @@
 	"main": "src/Rootpath",
 	"scripts":
 	{
-		"test": "mocha --check-leaks --recursive tests/"
+		"test": "mocha --check-leaks --recursive tests/",
+		"st":   "eslint src/ tests/"
 	},
 
 	"homepage":            "https://github.com/StreetStrider/rootpath",
@@ -33,6 +34,9 @@
 	"devDependencies":
 	{
 		"mocha":
-			"^2.2.5"
+			"^2.2.5",
+
+		"js-outlander":
+			"StrangeTransistor/js-outlander#2.0.8"
 	}
 }
