@@ -28,9 +28,8 @@ module.exports = function Rootpath (/* [path, or path[], ...] */)
 }
 
 
-var
-	path = require('path'),
-	flat = require('lodash.flattendeep')
+var path = require('path')
+var flat = require('lodash.flattendeep')
 
 function flatres ()
 {
