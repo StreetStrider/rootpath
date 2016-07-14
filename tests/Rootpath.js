@@ -1,15 +1,12 @@
 
-
-
-var
-	eq = require('assert').deepEqual,
-
-	Rootpath = require('../')
-
+var eq = require('assert').deepEqual
 
 describe('Rootpath', function ()
 {
+	var Rootpath = require('../')
+
 	var dir
+
 	beforeEach(function ()
 	{
 		dir = process.cwd()
@@ -120,9 +117,8 @@ describe('Rootpath', function ()
 	{
 		it('non-writeable', function ()
 		{
-			var
-				rootpath = Rootpath(),
-				path = rootpath.path
+			var rootpath = Rootpath()
+			var path = rootpath.path
 
 			$expectRootpathFunction(rootpath)
 
@@ -188,7 +184,10 @@ describe('Rootpath', function ()
 				eq(rootpath('a', [ 'b' ], [ 'c', 'd' ]), '/tmp/a/b/c/d')
 			}
 			{
-				eq(rootpath.resolve('a', [ 'b', [ 'c' ]], [[ 'd' ]]), '/tmp/a/b/c/d')
+				eq(
+					rootpath.resolve('a', [ 'b', [ 'c' ]], [[ 'd' ]]),
+					'/tmp/a/b/c/d'
+				)
 			}
 			{
 				eq(rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]]), '/tmp/a/b/c/d')
@@ -272,10 +271,10 @@ describe('Rootpath', function ()
 	{
 		it('does not mess up with multiple instances', function ()
 		{
-			var
-				X = Rootpath('x'),
-				x = X()
+			var X = Rootpath('x')
+			var x = X()
 
+			// eslint-disable-next-line no-unused-vars
 			var Y = Rootpath('y')
 
 			eq(x, X())
