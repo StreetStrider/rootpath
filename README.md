@@ -56,4 +56,4 @@ rootpath.partial(path, ...) -- create new rootpath relative to root + given path
 ```
 
 # license
-MIT. © StreetStrider, 2013 — 2015.
+MIT. © StreetStrider, 2013 — 2016.

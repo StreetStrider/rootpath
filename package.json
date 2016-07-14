@@ -1,6 +1,6 @@
 {
 	"name": "rootpath",
-	"version": "1.4.0",
+	"version": "1.5.0-pre",
 	"description": "pivot for path hierarchy",
 
 	"keywords": [ "path", "resolve", "rootpath", "root", "absolute", "flatten" ],
