@@ -1,6 +1,4 @@
 
-
-
 module.exports = function Rootpath (/* [path, or path[], ...] */)
 {
 	var root = flatres(arguments)
