@@ -1,13 +1,19 @@
 {
-	"name": "rootpath",
+	"name":    "rootpath",
 	"version": "1.5.0-pre",
+
 	"description": "pivot for path hierarchy",
 
-	"keywords": [ "path", "resolve", "rootpath", "root", "absolute", "flatten" ],
-
-	"author": "StreetStrider <teamfortresslife@gmail.com>",
+	"author":  "StreetStrider <teamfortresslife@gmail.com>",
 	"license": "MIT",
-	"private": true,
+	"private":  true,
+
+	"keywords":
+	[
+		"rootpath", "root", "fs",
+		"path", "resolve", "absolute", "relative",
+		"flatten"
+	],
 
 	"main": "src/Rootpath",
 	"scripts":
@@ -21,10 +27,12 @@
 
 	"dependencies":
 	{
-		"lodash.flattendeep": "^3.0.2"
+		"lodash.flattendeep":
+			"^3.0.2"
 	},
 	"devDependencies":
 	{
-		"mocha": "^2.2.5"
+		"mocha":
+			"^2.2.5"
 	}
 }
