@@ -18,8 +18,11 @@
 	"main": "src/Rootpath",
 	"scripts":
 	{
-		"test": "mocha --check-leaks --recursive tests/",
-		"st":   "eslint src/ tests/"
+		       "st":   "eslint src/ tests/",
+
+		     "test":                 "mocha    --check-leaks --recursive tests/",
+		    "cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
+		"coveralls": "istanbul-coveralls"
 	},
 
 	"homepage":            "https://github.com/StreetStrider/rootpath",
@@ -33,10 +36,16 @@
 	},
 	"devDependencies":
 	{
+		"js-outlander":
+			"StrangeTransistor/js-outlander#2.0.8",
+
 		"mocha":
 			"^2.2.5",
 
-		"js-outlander":
-			"StrangeTransistor/js-outlander#2.0.8"
+		"istanbul":
+			"^0.4",
+
+		"istanbul-coveralls":
+			"^1"
 	}
 }
