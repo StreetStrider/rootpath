@@ -195,6 +195,17 @@ describe('Rootpath', function ()
 		})
 	})
 
+	describe('Rootpath#relative()', function ()
+	{
+		it('can pick relatively', function ()
+		{
+			var rootpath = Rootpath('/tmp/a')
+
+			eq(rootpath.relative('/tmp/a/b/c'), 'b/c')
+			eq(rootpath.relative('/tmp/a'), '')
+		})
+	})
+
 	describe('Rootpath#partial()', function ()
 	{
 		it('can partial with no arguments', function ()
@@ -293,6 +304,9 @@ function $expectRootpathFunction (rootpath)
 	eq(typeof rootpath.resolve, 'function')
 	eq(rootpath.resolve.name, 'resolve')
 	eq(rootpath.path, rootpath.resolve())
+
+	eq(typeof rootpath.relative, 'function')
+	eq(rootpath.relative.name, 'relative')
 
 	eq(typeof rootpath.partial, 'function')
 	eq(rootpath.partial.name, 'partial')

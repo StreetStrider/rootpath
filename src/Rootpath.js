@@ -16,6 +16,12 @@ module.exports = function Rootpath (/* [path, or path[], ...] */)
 	}
 	value(rootpath, 'resolve', resolve)
 
+	var relative = function relative (to)
+	{
+		return path__relative(root, to)
+	}
+	value(rootpath, 'relative', relative)
+
 	var partial = function partial (/* [path, or path[], ...] */)
 	{
 		return Rootpath(rootpath(arguments))
@@ -33,6 +39,9 @@ function flatres ()
 {
 	return path__resolve.apply(null, flat(arguments))
 }
+
+
+var path__relative = require('path').relative
 
 
 function value (object, key, value)
