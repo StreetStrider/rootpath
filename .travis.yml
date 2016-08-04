@@ -7,7 +7,7 @@ env:
   - ESLINT=1
   - ESLINT=0
 script:
-  - '[ -z $ESLINT ] || npm run st'
+  - '[[ $ESLINT == 0 ]] || npm run st'
   - 'npm test'
 matrix:
   exclude:
