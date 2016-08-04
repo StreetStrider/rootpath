@@ -3,8 +3,16 @@ node_js:
   - '0.12'
   - '4'
   - '5'
+env:
+  - ESLINT=1
+  - ESLINT=0
+script:
+  - '[ -z $ESLINT ] || npm run st'
+  - 'npm test'
+matrix:
+  exclude:
+    - env: ESLINT=1
+      node_js: '0.12'
+
 after_success:
   - 'npm run cover && npm run coveralls'
-script:
-  - npm run st
-  - npm test
