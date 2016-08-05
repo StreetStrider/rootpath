@@ -33,7 +33,7 @@
 	"dependencies":
 	{
 		"lodash.flattendeep":
-			"^3.0.2"
+			"^4.3"
 	},
 	"devDependencies":
 	{
