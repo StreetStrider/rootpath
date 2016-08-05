@@ -35,6 +35,9 @@ function App ()
 
   /* pass concretized rootpaths to subcomponents: */
   this.someModel = new SomeModel(this.rootpath.partial('data/model'));
+
+  /* get path in space of rootpath */
+  var relpath = this.rootpath.relative(some_abspath)
 }
 ```
 
@@ -59,6 +62,9 @@ rootpath.resolve(path, ...), rootpath(path, ...)
 
 // create new rootpath relative to root + given path
 rootpath.partial(path, ...)
+
+// get relative path from root
+rootpath.relative(path)
 ```
 
 # license
