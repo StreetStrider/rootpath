@@ -48,12 +48,17 @@ npm install StreetStrider/rootpath
 Behavior of function is similar to std `path#resolve`. In addition it also flattens any arrays found in arguments. It will resolve path relative to `process.cwd()` if path would not absolute after all computations.
 
 ```javascript
-new Rootpath(), Rootpath() -- rootpath with process.cwd() root.
-new Rootpath(path, ...), Rootpath(path, ...) -- rootpath with given path root.
+// rootpath with process.cwd() root.
+new Rootpath(), Rootpath()
 
-rootpath.resolve(path, ...), rootpath(path, ...) -- resolve paths relative to root.
+// rootpath with given path root
+new Rootpath(path, ...), Rootpath(path, ...)
 
-rootpath.partial(path, ...) -- create new rootpath relative to root + given path.
+// resolve paths relative to root
+rootpath.resolve(path, ...), rootpath(path, ...)
+
+// create new rootpath relative to root + given path
+rootpath.partial(path, ...)
 ```
 
 # license
