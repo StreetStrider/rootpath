@@ -10,23 +10,20 @@ module.exports = function Rootpath (/* [path, or path[], ...] */)
 
 	enumvalue(rootpath, 'path', root)
 
-	var resolve = function resolve (/* [path, or path[], ...] */)
+	value(rootpath, 'resolve', function resolve (/* [path, or path[], ...] */)
 	{
 		return rootpath(arguments)
-	}
-	value(rootpath, 'resolve', resolve)
+	})
 
-	var relative = function relative (to)
+	value(rootpath, 'relative', function relative (to)
 	{
 		return path__relative(root, to)
-	}
-	value(rootpath, 'relative', relative)
+	})
 
-	var partial = function partial (/* [path, or path[], ...] */)
+	value(rootpath, 'partial', function partial (/* [path, or path[], ...] */)
 	{
 		return Rootpath(rootpath(arguments))
-	}
-	value(rootpath, 'partial', partial)
+	})
 
 	value(rootpath, 'toString', function toString ()
 	{
