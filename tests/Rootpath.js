@@ -278,6 +278,26 @@ describe('Rootpath', function ()
 		})
 	})
 
+	describe('Rootpath#toString()', function ()
+	{
+		it('can be converted to string', function ()
+		{
+			var X = Rootpath('/tmp/a')
+
+			eq(String(X), '/tmp/a')
+			eq(X.toString(), '/tmp/a')
+		})
+
+		it('Rootpath instance can be used as base for another one', function ()
+		{
+			var X = Rootpath('/tmp/a')
+			var Y = Rootpath(X, 'b')
+
+			eq(Y.path, '/tmp/a/b')
+			$expectRootpathFunction(Y)
+		})
+	})
+
 	describe('Rootpath issues', function ()
 	{
 		it('does not mess up with multiple instances', function ()

@@ -28,6 +28,11 @@ module.exports = function Rootpath (/* [path, or path[], ...] */)
 	}
 	value(rootpath, 'partial', partial)
 
+	value(rootpath, 'toString', function toString ()
+	{
+		return rootpath()
+	})
+
 	return rootpath
 }
 
@@ -37,7 +42,11 @@ var flat = require('lodash.flattendeep')
 
 function flatres ()
 {
-	return path__resolve.apply(null, flat(arguments))
+	var args = arguments
+	args = flat(args)
+	args = args.map(String)
+
+	return path__resolve.apply(null, args)
 }
 
 
