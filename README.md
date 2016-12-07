@@ -65,6 +65,12 @@ rootpath.partial(path, ...)
 
 // get relative path from root
 rootpath.relative(path)
+
+// root path of instance can be received via String/toString
+var base = String(rootpath)
+
+// one instance can be directly used as base for another
+var rootpath = Rootpath(another_rootpath, 'some/path')
 ```
 
 # license
