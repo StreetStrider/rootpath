@@ -38,10 +38,10 @@
 	"devDependencies":
 	{
 		"eslint":
-			"^3.2",
+			"^3.12",
 
 		"js-outlander":
-			"StrangeTransistor/js-outlander#2.0.8",
+			"StrangeTransistor/js-outlander#2.0.9",
 
 		"mocha":
 			"^3",
