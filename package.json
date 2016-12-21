@@ -19,11 +19,11 @@
 	"repository": { "url": "https://github.com/StreetStrider/rootpath.git", "type": "git" },
 	"bugs":       { "url": "https://github.com/StreetStrider/rootpath/issues" },
 
-	"main": "src/Rootpath",
+	"main": "Rootpath",
 
 	"scripts":
 	{
-		       "st": "eslint src/ tests/",
+		       "st": "eslint Rootpath.js tests/",
 
 		     "test":                 "mocha    --check-leaks --recursive tests/",
 		    "cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
