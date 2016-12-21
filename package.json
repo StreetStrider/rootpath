@@ -21,6 +21,11 @@
 
 	"main": "Rootpath",
 
+	"files":
+	[
+		"Rootpath.js"
+	],
+
 	"scripts":
 	{
 		       "st": "eslint Rootpath.js tests/",
