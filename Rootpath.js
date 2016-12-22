@@ -38,12 +38,15 @@ var Rootpath /* :F_Rootpath */
 		rootpath.path = ''
 		delete rootpath.path
 
+		/* istanbul ignore next */
 		rootpath.resolve = function () { return '' }
 		delete rootpath.resolve
 
+		/* istanbul ignore next */
 		rootpath.relative = function () { return '' }
 		delete rootpath.relative
 
+		/* istanbul ignore next */
 		/* @flow-off */
 		rootpath.partial = function () { return {} }
 		delete rootpath.partial
