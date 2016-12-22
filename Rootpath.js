@@ -34,18 +34,20 @@ var Rootpath /* :F_Rootpath */
 
 	{
 		/* hacks for flow: */
+		/* eslint-disable max-statements-per-line */
 		rootpath.path = ''
 		delete rootpath.path
 
-		rootpath.resolve = () => ''
+		rootpath.resolve = function () { return '' }
 		delete rootpath.resolve
 
-		rootpath.relative = () => ''
+		rootpath.relative = function () { return '' }
 		delete rootpath.relative
 
 		/* @flow-off */
-		rootpath.partial = () => null
+		rootpath.partial = function () { return {} }
 		delete rootpath.partial
+		/* eslint-enable max-statements-per-line */
 	}
 
 	enumvalue(rootpath, 'path', root)
