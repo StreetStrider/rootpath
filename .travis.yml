@@ -8,6 +8,7 @@ env:
   - ESLINT=1
 script:
   - '[[ $ESLINT == 0 ]] || npm run st'
+  - 'npm run flow'
   - 'npm test'
 matrix:
   exclude:

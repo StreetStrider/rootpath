@@ -1,6 +1,6 @@
 {
 	"name":    "rootpath",
-	"version": "1.6.0",
+	"version": "1.7.0-pre",
 
 	"description": "pivot for path hierarchy",
 
@@ -30,6 +30,8 @@
 	{
 		       "st": "eslint Rootpath.js tests/",
 
+		     "flow": "flow check",
+
 		     "test":                 "mocha    --check-leaks --recursive tests/",
 		    "cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
 		"coveralls": "istanbul-coveralls"
@@ -47,6 +49,9 @@
 
 		"js-outlander":
 			"StrangeTransistor/js-outlander#2.0.9",
+
+		"flow-bin":
+			"0.37",
 
 		"mocha":
 			"^3",

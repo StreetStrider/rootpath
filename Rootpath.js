@@ -1,5 +1,29 @@
+/* @flow */
+/* ::
+export type T_Rootpath_Path = string | T_Rootpath;
 
-module.exports = function Rootpath (/* [path, or path[], ...] */)
+export type T_Rootpath_PathSeq
+= T_Rootpath_Path
+| Array<T_Rootpath_Path | T_Rootpath_PathSeq>;
+
+export type F_Resolve  = (...args: Array<T_Rootpath_PathSeq>) => string;
+export type F_Rootpath = (...args: Array<T_Rootpath_PathSeq>) => T_Rootpath;
+
+export type T_Rootpath = F_Resolve
+&
+{
+	(...args: Array<T_Rootpath_PathSeq>): string,
+	path: string,
+	resolve: F_Resolve,
+	relative: (to: string) => string,
+	partial: F_Rootpath,
+	toString: () => string
+};
+*/
+
+var Rootpath /* :F_Rootpath */
+= function Rootpath (/* [path, or path[], ...] */)
+	/* :T_Rootpath */
 {
 	var root = flatres(arguments)
 
@@ -30,9 +54,11 @@ module.exports = function Rootpath (/* [path, or path[], ...] */)
 		return rootpath()
 	})
 
+	/* @flow-off */
 	return rootpath
 }
 
+module.exports = Rootpath
 
 var path__resolve = require('path').resolve
 var flat = require('lodash.flattendeep')
