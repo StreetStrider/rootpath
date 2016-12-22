@@ -1,4 +1,4 @@
-# rootpath [![Travis](https://img.shields.io/travis/StreetStrider/rootpath.svg?style=flat-square)](https://travis-ci.org/StreetStrider/rootpath) [![Coveralls](https://img.shields.io/coveralls/StreetStrider/rootpath.svg?style=flat-square)](https://coveralls.io/github/StreetStrider/rootpath) [![MIT licensed](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#license)
+# rootpath [![Travis](https://img.shields.io/travis/StreetStrider/rootpath.svg?style=flat-square)](https://travis-ci.org/StreetStrider/rootpath) [![Coveralls](https://img.shields.io/coveralls/StreetStrider/rootpath.svg?style=flat-square)](https://coveralls.io/github/StreetStrider/rootpath) [![MIT licensed](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#license) [![flowtype](http://img.shields.io/badge/flow-type-EBBF3A.svg?style=flat-square)](#flow)
 
 Address Node.js project's files relatively to project's root.
 
@@ -72,6 +72,9 @@ var base = String(rootpath)
 // one instance can be directly used as base for another
 var rootpath = Rootpath(another_rootpath, 'some/path')
 ```
+
+# flow
+We're providing built-in [Flow](https://flowtype.org/) type definitions.
 
 # license
 MIT. © StreetStrider, 2013 — 2016.

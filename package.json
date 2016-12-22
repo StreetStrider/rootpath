@@ -1,6 +1,6 @@
 {
 	"name":    "rootpath",
-	"version": "1.7.0-pre",
+	"version": "1.7.0",
 
 	"description": "pivot for path hierarchy",
 
@@ -12,7 +12,8 @@
 	[
 		"rootpath", "root", "fs",
 		"path", "resolve", "absolute", "relative",
-		"flatten"
+		"flatten",
+		"flow"
 	],
 
 	"homepage":            "https://github.com/StreetStrider/rootpath",
