@@ -17,7 +17,7 @@ export type T_Rootpath = F_Resolve
 	resolve: F_Resolve,
 	relative: (to: string) => string,
 	partial: F_Rootpath,
-	toString: () => string
+	+toString: () => string
 };
 */
 
@@ -30,6 +30,22 @@ var Rootpath /* :F_Rootpath */
 	var rootpath = function rootpath (/* [path, or path[], ...] */)
 	{
 		return flatres(root, arguments)
+	}
+
+	{
+		/* hacks for flow: */
+		rootpath.path = ''
+		delete rootpath.path
+
+		rootpath.resolve = () => ''
+		delete rootpath.resolve
+
+		rootpath.relative = () => ''
+		delete rootpath.relative
+
+		/* @flow-off */
+		rootpath.partial = () => null
+		delete rootpath.partial
 	}
 
 	enumvalue(rootpath, 'path', root)
@@ -54,7 +70,6 @@ var Rootpath /* :F_Rootpath */
 		return rootpath()
 	})
 
-	/* @flow-off */
 	return rootpath
 }
 
