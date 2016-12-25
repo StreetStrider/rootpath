@@ -77,4 +77,4 @@ var rootpath = Rootpath(another_rootpath, 'some/path')
 We're providing built-in [Flow](https://flowtype.org/) type definitions.
 
 # license
-MIT. © StreetStrider, 2013 — 2016.
+MIT. © Strider, 2013 — 2016.
