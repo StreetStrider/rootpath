@@ -2,7 +2,7 @@
 
 Address Node.js project's files relatively to project's root.
 
-# usage
+## usage
 ```sh
 project/
   cfg/
@@ -41,13 +41,13 @@ function App ()
 }
 ```
 
-# install
+## install
 [The registry](http://npmjs.org/) already has another package `rootpath`. So, to install this package one must use GitHub-shortcut:
 ```
 npm install StreetStrider/rootpath
 ```
 
-# API
+## API
 Behavior of function is similar to std `path#resolve`. In addition it also flattens any arrays found in arguments. It will resolve path relative to `process.cwd()` if path would not absolute after all computations.
 
 ```javascript
@@ -73,8 +73,8 @@ var base = String(rootpath)
 var rootpath = Rootpath(another_rootpath, 'some/path')
 ```
 
-# flow
+## flow
 We're providing built-in [Flow](https://flowtype.org/) type definitions.
 
-# license
+## license
 MIT. © Strider, 2013 — 2016.
