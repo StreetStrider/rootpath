@@ -37,7 +37,7 @@
 		    "cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
 		"coveralls": "istanbul-coveralls",
 
-		      "all": "npm run st; npm run flow; npm run cover;"
+		      "all": "npm run st && npm run flow && npm run cover"
 	},
 
 	"dependencies":
