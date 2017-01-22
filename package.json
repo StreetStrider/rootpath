@@ -1,6 +1,6 @@
 {
 	"name":    "rootpath",
-	"version": "1.7.0",
+	"version": "1.8.0-pre",
 
 	"description": "pivot for path hierarchy",
 
@@ -11,7 +11,7 @@
 	"keywords":
 	[
 		"rootpath", "root", "fs",
-		"path", "resolve", "absolute", "relative",
+		"path", "resolve", "absolute", "relative", "contains",
 		"flatten",
 		"flow"
 	],
@@ -43,7 +43,10 @@
 	"dependencies":
 	{
 		"lodash.flattendeep":
-			"^4.3"
+			"^4.3",
+
+		"node-path-extras":
+			"0.4"
 	},
 	"devDependencies":
 	{

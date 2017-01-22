@@ -283,6 +283,31 @@ describe('Rootpath', function ()
 		})
 	})
 
+	describe('Rootpath#contains()', function ()
+	{
+		it('works with path', function ()
+		{
+			var X = Rootpath('/tmp/a')
+
+			eq(X.contains('/tmp/a/b'), true)
+			eq(X.contains('/tmp/c'), false)
+		})
+
+		it('works with Rootpath', function ()
+		{
+			var X = Rootpath('/tmp/a')
+			var Y = Rootpath('/tmp')
+
+			eq(X.contains(Y()), false)
+			eq(X.contains(Y.resolve()), false)
+			eq(X.contains(Y), false)
+
+			eq(X.contains(Y.partial('a/b')()), true)
+			eq(X.contains(Y.partial('a/b').resolve()), true)
+			eq(X.contains(Y.partial('a/b')), true)
+		})
+	})
+
 	describe('Rootpath#toString()', function ()
 	{
 		it('can be converted to string', function ()

@@ -17,6 +17,7 @@ export type T_Rootpath = F_Resolve
 	resolve: F_Resolve,
 	relative: (to: string) => string,
 	partial: F_Rootpath,
+	contains: (path: string) => boolean,
 	+toString: () => string
 };
 */
@@ -50,6 +51,10 @@ var Rootpath /* :F_Rootpath */
 		/* @flow-off */
 		rootpath.partial = function () { return {} }
 		delete rootpath.partial
+
+		/* istanbul ignore next */
+		rootpath.contains = function (path /* :string */) { return true || path }
+		delete rootpath.contains
 		/* eslint-enable max-statements-per-line */
 	}
 
@@ -70,6 +75,11 @@ var Rootpath /* :F_Rootpath */
 		return Rootpath(rootpath(arguments))
 	})
 
+	value(rootpath, 'contains', function contains (path)
+	{
+		return path__contains(rootpath(), String(path))
+	})
+
 	value(rootpath, 'toString', function toString ()
 	{
 		return rootpath()
@@ -78,7 +88,9 @@ var Rootpath /* :F_Rootpath */
 	return rootpath
 }
 
+
 module.exports = Rootpath
+
 
 var path__resolve = require('path').resolve
 var flat = require('lodash.flattendeep')
@@ -94,6 +106,8 @@ function flatres ()
 
 
 var path__relative = require('path').relative
+var path__contains = require('node-path-extras').contains
+
 
 
 function value (object, key, value)
