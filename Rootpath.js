@@ -15,9 +15,9 @@ export type T_Rootpath = F_Resolve
 	(...args: Array<T_Rootpath_PathSeq>): string,
 	path: string,
 	resolve: F_Resolve,
-	relative: (to: string) => string,
+	relative: (to: T_Rootpath_Path) => string,
 	partial: F_Rootpath,
-	contains: (path: string) => boolean,
+	contains: (path: T_Rootpath_Path) => boolean,
 	+toString: () => string
 };
 */
@@ -44,7 +44,10 @@ var Rootpath /* :F_Rootpath */
 		delete rootpath.resolve
 
 		/* istanbul ignore next */
-		rootpath.relative = function () { return '' }
+		rootpath.relative = function (to /* :T_Rootpath_Path */)
+		{
+			return '' && to
+		}
 		delete rootpath.relative
 
 		/* istanbul ignore next */
@@ -53,7 +56,10 @@ var Rootpath /* :F_Rootpath */
 		delete rootpath.partial
 
 		/* istanbul ignore next */
-		rootpath.contains = function (path /* :string */) { return true || path }
+		rootpath.contains = function (path /* :T_Rootpath_Path */)
+		{
+			return true || path
+		}
 		delete rootpath.contains
 		/* eslint-enable max-statements-per-line */
 	}
