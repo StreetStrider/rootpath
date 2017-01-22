@@ -209,6 +209,16 @@ describe('Rootpath', function ()
 			eq(rootpath.relative('/tmp/a/b/c'), 'b/c')
 			eq(rootpath.relative('/tmp/a'), '')
 		})
+
+		it('works with Rootpath', function ()
+		{
+			var X = Rootpath('/tmp/a')
+			var Y = Rootpath('/tmp/a/b/c')
+
+			eq(X.relative(Y()), 'b/c')
+			eq(X.relative(Y.resolve()), 'b/c')
+			eq(X.relative(Y), 'b/c')
+		})
 	})
 
 	describe('Rootpath#partial()', function ()

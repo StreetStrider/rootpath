@@ -67,7 +67,7 @@ var Rootpath /* :F_Rootpath */
 
 	value(rootpath, 'relative', function relative (to)
 	{
-		return path__relative(root, to)
+		return path__relative(root, String(to))
 	})
 
 	value(rootpath, 'partial', function partial (/* [path, or path[], ...] */)
