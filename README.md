@@ -66,6 +66,9 @@ rootpath.partial(path, ...)
 // get relative path from root
 rootpath.relative(path)
 
+// does this rootpath contains path as a subpath
+roootpath.contains(path)
+
 // root path of instance can be received via String/toString
 var base = String(rootpath)
 
