@@ -2,9 +2,7 @@
 /* ::
 export type T_Rootpath_Path = string | T_Rootpath;
 
-export type T_Rootpath_PathSeq
-= T_Rootpath_Path
-| Array<T_Rootpath_Path | T_Rootpath_PathSeq>;
+export type T_Rootpath_PathSeq = T_Rootpath_Path | Array<T_Rootpath_PathSeq>;
 
 export type F_Resolve  = (...args: Array<T_Rootpath_PathSeq>) => string;
 export type F_Rootpath = (...args: Array<T_Rootpath_PathSeq>) => T_Rootpath;
