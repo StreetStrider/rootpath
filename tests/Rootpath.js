@@ -137,14 +137,14 @@ describe('Rootpath', function ()
 	{
 		it('can resolve with no arguments', function ()
 		{
-			var rootpath = new Rootpath
+			var rootpath = Rootpath()
 
 			eq(rootpath.resolve(), '/tmp')
 			eq(rootpath(), '/tmp')
 		})
 		it('can resolve with single argument', function ()
 		{
-			var rootpath = new Rootpath
+			var rootpath = Rootpath()
 			{
 				eq(rootpath.resolve('abc'), '/tmp/abc')
 				eq(rootpath.resolve('abc/'), '/tmp/abc')
@@ -157,7 +157,7 @@ describe('Rootpath', function ()
 		})
 		it('can resolve upper level', function ()
 		{
-			var rootpath = new Rootpath
+			var rootpath = Rootpath()
 			{
 				eq(rootpath.resolve('..'), '/')
 				eq(rootpath.resolve('../'), '/')
@@ -169,7 +169,7 @@ describe('Rootpath', function ()
 		})
 		it('can resolve with multiple arguments', function ()
 		{
-			var rootpath = new Rootpath
+			var rootpath = Rootpath()
 			{
 				eq(rootpath.resolve('abc', 'def'), '/tmp/abc/def')
 				eq(rootpath.resolve('abc/', 'def/'), '/tmp/abc/def')
@@ -181,7 +181,7 @@ describe('Rootpath', function ()
 		})
 		it('can resolve with non-flat arguments', function ()
 		{
-			var rootpath = new Rootpath
+			var rootpath = Rootpath()
 			{
 				eq(rootpath.resolve('a', [ 'b' ], [ 'c', 'd' ]), '/tmp/a/b/c/d')
 			}
