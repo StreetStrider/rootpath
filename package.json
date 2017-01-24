@@ -57,7 +57,7 @@
 			"StrangeTransistor/js-outlander#2.0.9",
 
 		"flow-bin":
-			"0.37",
+			"0.38",
 
 		"mocha":
 			"^3",
