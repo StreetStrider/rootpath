@@ -1,5 +1,6 @@
 /* @flow */
 /* ::
+
 export type T_Rootpath_Path = string | T_Rootpath;
 
 export type T_Rootpath_PathSeq = T_Rootpath_Path | Array<T_Rootpath_PathSeq>;
@@ -7,10 +8,10 @@ export type T_Rootpath_PathSeq = T_Rootpath_Path | Array<T_Rootpath_PathSeq>;
 export type F_Resolve  = (...args: Array<T_Rootpath_PathSeq>) => string;
 export type F_Rootpath = (...args: Array<T_Rootpath_PathSeq>) => T_Rootpath;
 
-export type T_Rootpath = F_Resolve
+export type T_Rootpath
+= F_Resolve
 &
 {
-	(...args: Array<T_Rootpath_PathSeq>): string,
 	path: string,
 	resolve: F_Resolve,
 	relative: (to: T_Rootpath_Path) => string,
@@ -18,6 +19,7 @@ export type T_Rootpath = F_Resolve
 	contains: (path: T_Rootpath_Path) => boolean,
 	+toString: () => string
 };
+
 */
 
 var Rootpath /* :F_Rootpath */
