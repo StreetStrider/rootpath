@@ -23,12 +23,12 @@ export type T_Rootpath
 */
 
 var Rootpath /* :F_Rootpath */
-= function Rootpath (/* [path, or path[], ...] */)
+= function Rootpath (/* ::...args: T_Rootpath_PathSeq[] */)
 	/* :T_Rootpath */
 {
 	var root = flatres(arguments)
 
-	var rootpath = function rootpath (/* [path, or path[], ...] */)
+	var rootpath = function rootpath (/* ::...args: T_Rootpath_PathSeq[] */)
 	{
 		return flatres(root, arguments)
 	}
