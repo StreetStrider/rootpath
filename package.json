@@ -54,7 +54,7 @@
 			"^3.12",
 
 		"js-outlander":
-			"StrangeTransistor/js-outlander#2.0.9",
+			"StrangeTransistor/js-outlander#2.1.1",
 
 		"flow-bin":
 			"0.53",
