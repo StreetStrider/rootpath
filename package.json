@@ -1,12 +1,11 @@
 {
-	"name":    "rootpath",
-	"version": "1.8.1",
+	"name":    "@streetstrider/rootpath",
+	"version": "1.8.2",
 
 	"description": "pivot for path hierarchy",
 
 	"author":  "Strider <strange.transistor@gmail.com>",
 	"license": "MIT",
-	"private":  true,
 
 	"keywords":
 	[
