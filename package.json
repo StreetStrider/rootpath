@@ -23,7 +23,8 @@
 
 	"files":
 	[
-		"Rootpath.js"
+		"Rootpath.js",
+		"README.md"
 	],
 
 	"scripts":
