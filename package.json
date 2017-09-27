@@ -51,7 +51,7 @@
 			"npm run st && npm run types && npm run unit",
 
 		"test":
-			"yes",
+			"true",
 
 		"coveralls":
 			"istanbul-coveralls"
