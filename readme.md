@@ -10,6 +10,8 @@
 Address Node.js project's files relatively to project's root.
 
 ## usage
+Consider the following structure:
+
 ```sh
 project/
   cfg/
@@ -18,33 +20,43 @@ project/
     App.js
 ```
 
+If you want to address config from App you could use composition of `__dirname`, path joining and relative paths. This becomes messy and uncontrollable very quickly. There's a place for an abstraction which would encapsulate point in fs hierarchy and allow to construct paths and address files in clean and easy manner.
+
 App.js:
-```javascript
-var
-    Rootpath = require('rootpath');
+```js
+import rootpath from '@streetstrider/rootpath'
 
 function App ()
 {
-  /* with rootpath */
-  this.rootpath = new Rootpath(__dirname, '..');
+  /* with rootpath: */
+  this.fromroot = rootpath()
+  /*
+   * which means: "pinpoint project's root directory (where package.json)."
+   */
 
-  /* you can do this: */
-  this.config   = require(this.roopath.resolve('cfg', 'config.json');
-
+  /* it is also possible to supply path or path segments manually */
+  this.fromroot = rootpath(__dirname, '..')
   /* or */
-  this.config   = require(this.roopath.resolve([ 'cfg', 'config.json' ]);
-
+  this.fromroot = rootpath([ __dirname, '..' ])
   /* or */
-  this.config   = require(this.roopath.resolve('cfg/config.json');
+  this.fromroot = rootpath(__dirname + '/..')
 
-  /* or even simpler */
-  this.config   = require(this.rootpath('cfg/config.json'));
+  /* on this point `fromroot` becomes a pivot for addressing */
+  this.config = load(this.fromroot('cfg', 'config.json'))
+  /* or */
+  this.config = load(this.fromroot([ 'cfg', 'config.json' ]))
+  /* or */
+  this.config = load(this.fromroot('cfg/config.json'))
 
-  /* pass concretized rootpaths to subcomponents: */
-  this.someModel = new SomeModel(this.rootpath.partial('data/model'));
+  /* you also can use `rootpath#resolve` as an explicit analogue */
+  this.config   = load(this.fromroot.resolve('cfg', 'config.json')
+
+  /* if you need to create concretized view onto fs, use rootpath#partial: */
+  this.someModel = new SomeModel(this.fromroot.partial('data/model'))
+  /* this creates new instance of rootpath, focused on `data/model` */
 
   /* get path in space of rootpath */
-  var relpath = this.rootpath.relative(some_abspath)
+  var relpath = this.fromroot.relative(some_abspath)
 }
 ```
 
