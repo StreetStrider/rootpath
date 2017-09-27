@@ -3,7 +3,7 @@
 [![Travis](https://img.shields.io/travis/StreetStrider/rootpath.svg?style=flat-square)](https://travis-ci.org/StreetStrider/rootpath)
 [![Coveralls](https://img.shields.io/coveralls/StreetStrider/rootpath.svg?style=flat-square)](https://coveralls.io/github/StreetStrider/rootpath)
 [![npm|@streetstrider/rootpath](http://img.shields.io/badge/npm-@streetstrider/rootpath-CB3837.svg?style=flat-square)](https://www.npmjs.org/package/@streetstrider/rootpath)
-[![MIT licensed](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#license)
+[![ISC licensed](http://img.shields.io/badge/license-ISC-brightgreen.svg?style=flat-square)](#license)
 [![flowtype](http://img.shields.io/badge/flow-type-EBBF3A.svg?style=flat-square)](#types)
 [![typescript](http://img.shields.io/badge/type-script-0074C1.svg?style=flat-square)](#types)
 
@@ -86,4 +86,4 @@ var rootpath = Rootpath(another_rootpath, 'some/path')
 We're providing built-in [TypeScript](http://typescriptlang.org/) & [Flow](https://flowtype.org/) type definitions.
 
 ## license
-MIT. © Strider, 2013 — 2017.
+ISC. © Strider, 2013 — 2017.
