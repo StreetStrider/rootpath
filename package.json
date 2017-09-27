@@ -29,15 +29,32 @@
 
 	"scripts":
 	{
-		       "st": "eslint Rootpath.js tests/",
+		".st":
+			"eslint",
 
-		     "flow": "flow check",
+		".flow":
+			"flow check",
 
-		     "test":                 "mocha    --check-leaks --recursive tests/",
-		    "cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
-		"coveralls": "istanbul-coveralls",
+		".ts":
+			"tsc",
 
-		      "all": "npm run st && npm run flow && npm run cover"
+		".types":
+			"npm run flow && npm run ts",
+
+		 ".test":                 "mocha    --check-leaks --recursive tests/",
+		".cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
+
+		".unit":
+			"metalbox && test/cover",
+
+		".test":
+			"npm run st && npm run types && npm run unit",
+
+		"test":
+			"yes",
+
+		"coveralls":
+			"istanbul-coveralls"
 	},
 
 	"dependencies":

@@ -1,23 +1,11 @@
 language: node_js
 node_js:
-  - '0.12'
-  - '4'
-  - '5'
   - '6'
   - '7'
-env:
-  - ESLINT=1
+  - '8'
+
 script:
-  - '[[ $ESLINT == 0 ]] || npm run st'
-  - 'npm run flow'
   - 'npm test'
-matrix:
-  exclude:
-    - env: ESLINT=1
-      node_js: '0.12'
-  include:
-    - env: ESLINT=0
-      node_js: '0.12'
 
 after_success:
-  - 'npm run cover && npm run coveralls'
+  - 'npm run coveralls'
