@@ -3,7 +3,9 @@
 [![Travis](https://img.shields.io/travis/StreetStrider/rootpath.svg?style=flat-square)](https://travis-ci.org/StreetStrider/rootpath)
 [![Coveralls](https://img.shields.io/coveralls/StreetStrider/rootpath.svg?style=flat-square)](https://coveralls.io/github/StreetStrider/rootpath)
 [![npm|@streetstrider/rootpath](http://img.shields.io/badge/npm-@streetstrider/rootpath-CB3837.svg?style=flat-square)](https://www.npmjs.org/package/@streetstrider/rootpath)
-[![MIT licensed](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#license) [![flowtype](http://img.shields.io/badge/flow-type-EBBF3A.svg?style=flat-square)](#flow)
+[![MIT licensed](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#license)
+[![flowtype](http://img.shields.io/badge/flow-type-EBBF3A.svg?style=flat-square)](#types)
+[![typescript](http://img.shields.io/badge/type-script-0074C1.svg?style=flat-square)](#types)
 
 Address Node.js project's files relatively to project's root.
 
@@ -80,8 +82,8 @@ var base = String(rootpath)
 var rootpath = Rootpath(another_rootpath, 'some/path')
 ```
 
-## flow
-We're providing built-in [Flow](https://flowtype.org/) type definitions.
+## types
+We're providing built-in [TypeScript](http://typescriptlang.org/) & [Flow](https://flowtype.org/) type definitions.
 
 ## license
 MIT. © Strider, 2013 — 2017.
