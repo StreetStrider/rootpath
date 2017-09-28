@@ -31,13 +31,27 @@
 		"README.md"
 	],
 
-	"engines":
+	"metalbox":
 	{
-		"node": ">=6"
+		"presets":
+		{
+			"dev": [ "Library/Dev", { "options": { "targets": "node-first" }} ],
+			"npm": [ "Library",     { "options": { "targets": "node-first" }} ]
+		}
 	},
 
 	"scripts":
 	{
+		"start":
+			"metalbox preset dev",
+
+		"release/dev":
+			"metalbox preset dev -1",
+
+		"release":
+			"metalbox preset npm",
+
+
 		".st":
 			"eslint",
 
@@ -62,6 +76,7 @@
 		"test":
 			"true",
 
+
 		"coveralls":
 			"istanbul-coveralls"
 	},
@@ -76,6 +91,10 @@
 	},
 	"devDependencies":
 	{
+		"metalbox":
+			"1.16.0",
+
+
 		"eslint":
 			"^3.12",
 
