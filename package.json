@@ -20,12 +20,16 @@
 	"bugs":       { "url": "https://github.com/StreetStrider/rootpath/issues" },
 
 	"main": "Rootpath",
-
 	"files":
 	[
 		"Rootpath.js",
 		"README.md"
 	],
+
+	"engines":
+	{
+		"node": ">=6"
+	},
 
 	"scripts":
 	{
