@@ -19,6 +19,11 @@
 	"repository": { "url": "https://github.com/StreetStrider/rootpath.git", "type": "git" },
 	"bugs":       { "url": "https://github.com/StreetStrider/rootpath/issues" },
 
+	"engines":
+	{
+		"node": ">=6"
+	},
+
 	"main": "Rootpath",
 	"files":
 	[
@@ -36,13 +41,13 @@
 		".st":
 			"eslint",
 
-		".flow":
+		"flow":
 			"flow check",
 
-		".ts":
+		"ts":
 			"tsc",
 
-		".types":
+		"types":
 			"npm run flow && npm run ts",
 
 		 ".test":                 "mocha    --check-leaks --recursive tests/",
@@ -77,8 +82,13 @@
 		"js-outlander":
 			"StrangeTransistor/js-outlander#2.1.1",
 
+
 		"flow-bin":
-			"0.53",
+			"0.55",
+
+		"typescript":
+			"2.5",
+
 
 		"mocha":
 			"^3",
