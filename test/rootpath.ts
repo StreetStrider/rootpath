@@ -4,29 +4,29 @@
 /* :: declare var beforeEach: Function; */
 /* :: declare var afterEach: Function; */
 
-var eq = require('assert').deepEqual
+import { deepEqual as eq } from 'assert'
 
-describe('Rootpath', function ()
+describe('Rootpath', () =>
 {
 	var Rootpath = require('../')
 
 	var dir
 
-	beforeEach(function ()
+	beforeEach(() =>
 	{
 		dir = process.cwd()
 		process.chdir('/tmp')
 	})
 
-	afterEach(function ()
+	afterEach(() =>
 	{
 		process.chdir(dir)
 	})
 
 
-	describe('new Rootpath(), Rootpath()', function ()
+	describe('new Rootpath(), Rootpath()', () =>
 	{
-		it('can constructs with no arguments', function ()
+		it('can constructs with no arguments', () =>
 		{
 			{
 				var rootpath = new Rootpath
@@ -39,7 +39,7 @@ describe('Rootpath', function ()
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs with single argument', function ()
+		it('can constructs with single argument', () =>
 		{
 			{
 				var rootpath = new Rootpath('a')
@@ -63,7 +63,7 @@ describe('Rootpath', function ()
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs upper level', function ()
+		it('can constructs upper level', () =>
 		{
 			{
 				var rootpath = new Rootpath('..')
@@ -76,7 +76,7 @@ describe('Rootpath', function ()
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs with multiple arguments', function ()
+		it('can constructs with multiple arguments', () =>
 		{
 			{
 				var rootpath = new Rootpath('a', 'b')
@@ -96,7 +96,7 @@ describe('Rootpath', function ()
 				eq(rootpath.path, '/tmp/a/b')
 			}
 		})
-		it('can constructs with non-flat arguments', function ()
+		it('can constructs with non-flat arguments', () =>
 		{
 			{
 				var rootpath = new Rootpath('a', [ 'b', 'c' ], [ 'd' ])
@@ -118,9 +118,9 @@ describe('Rootpath', function ()
 		})
 	})
 
-	describe('Rootpath#path', function ()
+	describe('Rootpath#path', () =>
 	{
-		it('non-writeable', function ()
+		it('non-writeable', () =>
 		{
 			var rootpath = Rootpath()
 			var path = rootpath.path
@@ -139,16 +139,16 @@ describe('Rootpath', function ()
 		})
 	})
 
-	describe('Rootpath#resolve(), rootpath()', function ()
+	describe('Rootpath#resolve(), rootpath()', () =>
 	{
-		it('can resolve with no arguments', function ()
+		it('can resolve with no arguments', () =>
 		{
 			var rootpath = Rootpath()
 
 			eq(rootpath.resolve(), '/tmp')
 			eq(rootpath(), '/tmp')
 		})
-		it('can resolve with single argument', function ()
+		it('can resolve with single argument', () =>
 		{
 			var rootpath = Rootpath()
 			{
@@ -161,7 +161,7 @@ describe('Rootpath', function ()
 			}
 
 		})
-		it('can resolve upper level', function ()
+		it('can resolve upper level', () =>
 		{
 			var rootpath = Rootpath()
 			{
@@ -173,7 +173,7 @@ describe('Rootpath', function ()
 				eq(rootpath('../'), '/')
 			}
 		})
-		it('can resolve with multiple arguments', function ()
+		it('can resolve with multiple arguments', () =>
 		{
 			var rootpath = Rootpath()
 			{
@@ -185,7 +185,7 @@ describe('Rootpath', function ()
 				eq(rootpath('abc/', 'def/'), '/tmp/abc/def')
 			}
 		})
-		it('can resolve with non-flat arguments', function ()
+		it('can resolve with non-flat arguments', () =>
 		{
 			var rootpath = Rootpath()
 			{
@@ -206,9 +206,9 @@ describe('Rootpath', function ()
 		})
 	})
 
-	describe('Rootpath#relative()', function ()
+	describe('Rootpath#relative()', () =>
 	{
-		it('can pick relatively', function ()
+		it('can pick relatively', () =>
 		{
 			var rootpath = Rootpath('/tmp/a')
 
@@ -216,7 +216,7 @@ describe('Rootpath', function ()
 			eq(rootpath.relative('/tmp/a'), '')
 		})
 
-		it('works with Rootpath', function ()
+		it('works with Rootpath', () =>
 		{
 			var X = Rootpath('/tmp/a')
 			var Y = Rootpath('/tmp/a/b/c')
@@ -227,15 +227,15 @@ describe('Rootpath', function ()
 		})
 	})
 
-	describe('Rootpath#partial()', function ()
+	describe('Rootpath#partial()', () =>
 	{
-		it('can partial with no arguments', function ()
+		it('can partial with no arguments', () =>
 		{
 			var rootpath = Rootpath('a').partial()
 			eq(rootpath.path, '/tmp/a')
 			$expectRootpathFunction(rootpath)
 		})
-		it('can partial with single argument', function ()
+		it('can partial with single argument', () =>
 		{
 			{
 				var rootpath = Rootpath('a').partial('b')
@@ -248,7 +248,7 @@ describe('Rootpath', function ()
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can partial upper level', function ()
+		it('can partial upper level', () =>
 		{
 			{
 				var rootpath = Rootpath('a').partial('..')
@@ -261,7 +261,7 @@ describe('Rootpath', function ()
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can partial with multiple arguments', function ()
+		it('can partial with multiple arguments', () =>
 		{
 			{
 				var rootpath = Rootpath('a').partial('b', 'c')
@@ -274,7 +274,7 @@ describe('Rootpath', function ()
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can partial with non-flat arguments', function ()
+		it('can partial with non-flat arguments', () =>
 		{
 			{
 				var rootpath = Rootpath().partial('a', [ 'b', 'c' ], 'd')
@@ -299,9 +299,9 @@ describe('Rootpath', function ()
 		})
 	})
 
-	describe('Rootpath#contains()', function ()
+	describe('Rootpath#contains()', () =>
 	{
-		it('works with path', function ()
+		it('works with path', () =>
 		{
 			var X = Rootpath('/tmp/a')
 
@@ -309,7 +309,7 @@ describe('Rootpath', function ()
 			eq(X.contains('/tmp/c'), false)
 		})
 
-		it('works with Rootpath', function ()
+		it('works with Rootpath', () =>
 		{
 			var X = Rootpath('/tmp/a')
 			var Y = Rootpath('/tmp')
@@ -324,9 +324,9 @@ describe('Rootpath', function ()
 		})
 	})
 
-	describe('Rootpath#toString()', function ()
+	describe('Rootpath#toString()', () =>
 	{
-		it('can be converted to string', function ()
+		it('can be converted to string', () =>
 		{
 			var X = Rootpath('/tmp/a')
 
@@ -334,7 +334,7 @@ describe('Rootpath', function ()
 			eq(X.toString(), '/tmp/a')
 		})
 
-		it('Rootpath instance can be used as base for another one', function ()
+		it('Rootpath instance can be used as base for another one', () =>
 		{
 			var X = Rootpath('/tmp/a')
 			var Y = Rootpath(X, 'b')
@@ -344,9 +344,9 @@ describe('Rootpath', function ()
 		})
 	})
 
-	describe('Rootpath issues', function ()
+	describe('Rootpath issues', () =>
 	{
-		it('does not mess up with multiple instances', function ()
+		it('does not mess up with multiple instances', () =>
 		{
 			var X = Rootpath('x')
 			var x = X()
