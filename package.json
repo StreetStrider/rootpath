@@ -64,17 +64,14 @@
 		"types":
 			"npm run flow && npm run ts",
 
-		 ".test":                 "mocha    --check-leaks --recursive tests/",
+		  "unit":                 "mocha    --check-leaks --recursive release/dev/test/",
 		".cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
-
-		".unit":
-			"metalbox && test/cover",
 
 		".test":
 			"npm run st && npm run types && npm run unit",
 
 		"test":
-			"true",
+			"npm run release/dev && npm run unit",
 
 
 		"coveralls":
@@ -107,6 +104,9 @@
 
 		"typescript":
 			"2.5",
+
+		"typescript-helpers":
+			"1",
 
 
 		"mocha":
