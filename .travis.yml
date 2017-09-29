@@ -8,4 +8,4 @@ script:
   - 'npm test'
 
 after_success:
-  - 'npm run coveralls'
+  - 'npm run cover && npm run coveralls'

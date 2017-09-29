@@ -64,8 +64,8 @@
 		"types":
 			"npm run flow && npm run ts",
 
-		  "unit":                 "mocha    --check-leaks --recursive release/dev/test/",
-		".cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
+		 "unit":                 "mocha    --check-leaks --recursive release/dev/test/",
+		"cover": "istanbul cover _mocha -- --check-leaks --recursive release/dev/test/",
 
 		"test":
 			"npm run st && npm run types && npm run release/dev && npm run unit",
