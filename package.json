@@ -56,7 +56,7 @@
 			"eslint --ext ts test/",
 
 		"flow":
-			"flow check",
+			"true || flow check",
 
 		"ts":
 			"tsc",
