@@ -52,8 +52,8 @@
 			"metalbox preset npm",
 
 
-		".st":
-			"eslint",
+		"st":
+			"eslint --ext ts test/",
 
 		"flow":
 			"flow check",
@@ -71,7 +71,7 @@
 			"npm run st && npm run types && npm run unit",
 
 		"test":
-			"npm run release/dev && npm run unit",
+			"npm run st && npm run release/dev && npm run unit",
 
 
 		"coveralls":
