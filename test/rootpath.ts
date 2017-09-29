@@ -127,7 +127,13 @@ describe('Rootpath', function ()
 
 			$expectRootpathFunction(rootpath)
 
-			rootpath.path = path + 'something'
+			try
+			{
+				rootpath.path = path + 'something'
+			}
+			catch (e)
+			{
+			}
 
 			eq(rootpath.path, path)
 		})
