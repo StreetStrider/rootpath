@@ -10,7 +10,7 @@ describe('Rootpath', () =>
 {
 	var Rootpath = require('../')
 
-	var dir
+	var dir: string = ''
 
 	beforeEach(() =>
 	{
@@ -359,7 +359,7 @@ describe('Rootpath', () =>
 	})
 })
 
-function $expectRootpathFunction (rootpath)
+function $expectRootpathFunction (rootpath: any)
 {
 	eq(typeof rootpath, 'function')
 	eq(rootpath.name, 'rootpath')

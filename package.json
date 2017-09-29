@@ -67,11 +67,8 @@
 		  "unit":                 "mocha    --check-leaks --recursive release/dev/test/",
 		".cover": "istanbul cover _mocha -- --check-leaks --recursive tests/",
 
-		".test":
-			"npm run st && npm run types && npm run unit",
-
 		"test":
-			"npm run st && npm run release/dev && npm run unit",
+			"npm run st && npm run types && npm run release/dev && npm run unit",
 
 
 		"coveralls":
@@ -102,11 +99,18 @@
 		"flow-bin":
 			"0.55",
 
+
 		"typescript":
 			"2.5",
 
 		"typescript-helpers":
 			"1",
+
+		"@types/node":
+			"8",
+
+		"@types/mocha":
+			"2",
 
 
 		"mocha":

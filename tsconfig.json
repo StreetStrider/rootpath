@@ -1,5 +1,5 @@
 {
-	"files": [ "index.ts" ],
+	"files": [ /* "index.ts", */ "test/rootpath.ts" ],
 	"compilerOptions":
 	{
 		"noEmit": true,
