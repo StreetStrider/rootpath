@@ -1,37 +1,30 @@
-/* ::
 
-export type T_Rootpath_Path = string | T_Rootpath;
+; export type T_Rootpath_Path = string
+// ; export type T_Rootpath_Path = string | T_Rootpath
 
-export type T_Rootpath_PathSeq = T_Rootpath_Path | Array<T_Rootpath_PathSeq>;
+; export type T_Rootpath_PathSeq = T_Rootpath_Path | T_Rootpath_Path[]
 
-export type F_Resolve  = (...args: Array<T_Rootpath_PathSeq>) => string;
-export type F_Rootpath = (...args: Array<T_Rootpath_PathSeq>) => T_Rootpath;
+; export interface F_Resolve  { (...args: T_Rootpath_PathSeq[]): string }
+; export interface F_Rootpath { (...args: T_Rootpath_PathSeq[]): T_Rootpath }
 
-export type T_Rootpath
-= F_Resolve
-&
+; export interface T_Rootpath extends F_Resolve
 {
 	path: string,
 	resolve: F_Resolve,
-	relative: (to: T_Rootpath_Path) => string,
+	relative(to: T_Rootpath_Path): string,
 	partial: F_Rootpath,
-	contains: (path: T_Rootpath_Path) => boolean,
-	+toString: () => string
-};
+	contains(path: T_Rootpath_Path): boolean,
+	toString: () => string,
+}
 
-*/
-
-export default Rootpath
-
-var Rootpath /* :F_Rootpath */
-= function Rootpath (/* ::...args: T_Rootpath_PathSeq[] */)
-	/* :T_Rootpath */
+var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
+:T_Rootpath
 {
-	var root = flatres(arguments)
+	var root = flatres(args)
 
-	var rootpath = function rootpath (/* ::...args: T_Rootpath_PathSeq[] */)
+	var rootpath = function rootpath (...args: T_Rootpath_Path[])
 	{
-		return flatres(root, arguments)
+		return flatres(root, args)
 	}
 
 	{
@@ -65,22 +58,22 @@ var Rootpath /* :F_Rootpath */
 
 	enumvalue(rootpath, 'path', root)
 
-	value(rootpath, 'resolve', function resolve (/* [path, or path[], ...] */)
+	value(rootpath, 'resolve', function resolve (...args: T_Rootpath_Path[])
 	{
-		return rootpath(arguments)
+		return rootpath(args)
 	})
 
-	value(rootpath, 'relative', function relative (to)
+	value(rootpath, 'relative', function relative (to: T_Rootpath_Path)
 	{
 		return path__relative(root, String(to))
 	})
 
-	value(rootpath, 'partial', function partial (/* [path, or path[], ...] */)
+	value(rootpath, 'partial', function partial (...args: T_Rootpath_Path[])
 	{
-		return Rootpath(rootpath(arguments))
+		return Rootpath(rootpath(args))
 	})
 
-	value(rootpath, 'contains', function contains (path)
+	value(rootpath, 'contains', function contains (path: T_Rootpath_Path)
 	{
 		return path__contains(rootpath(), String(path))
 	})
@@ -90,16 +83,17 @@ var Rootpath /* :F_Rootpath */
 		return rootpath()
 	})
 
-	return rootpath
+	return rootpath as T_Rootpath
 }
+
+export default Rootpath
 
 
 import { resolve as path__resolve } from 'path'
 import flat from 'lodash.flattendeep'
 
-function flatres (/* :: ...args: Array<T_Rootpath_PathSeq> */) /* :string */
+function flatres (...args: T_Rootpath_PathSeq[]): string
 {
-	var args = arguments
 	args = flat(args)
 	args = args.map(String)
 

@@ -85,6 +85,16 @@
 	},
 	"devDependencies":
 	{
+		"@types/lodash.flattendeep":
+			"^4.3",
+
+		"@types/node":
+			"8",
+
+		"@types/mocha":
+			"2",
+
+
 		"metalbox":
 			"1.16.0",
 
@@ -105,12 +115,6 @@
 
 		"typescript-helpers":
 			"1",
-
-		"@types/node":
-			"8",
-
-		"@types/mocha":
-			"2",
 
 
 		"mocha":
