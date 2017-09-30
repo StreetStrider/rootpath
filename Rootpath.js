@@ -95,8 +95,8 @@ var Rootpath /* :F_Rootpath */
 module.exports = Rootpath
 
 
-var path__resolve = require('path').resolve
-var flat = require('lodash.flattendeep')
+import { resolve as path__resolve } from 'path'
+import flat from 'lodash.flattendeep'
 
 function flatres (/* :: ...args: Array<T_Rootpath_PathSeq> */) /* :string */
 {
@@ -108,9 +108,8 @@ function flatres (/* :: ...args: Array<T_Rootpath_PathSeq> */) /* :string */
 }
 
 
-var path__relative = require('path').relative
-var path__contains = require('node-path-extras').contains
-
+import { relative as path__relative } from 'path'
+import { contains as path__contains } from 'node-path-extras'
 
 function value (object, key, value)
 {

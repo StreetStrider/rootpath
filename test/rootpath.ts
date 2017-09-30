@@ -1,10 +1,10 @@
 
 import { deepEqual as eq } from 'assert'
 
+import Rootpath from '../'
+
 describe('Rootpath', () =>
 {
-	var Rootpath = require('../')
-
 	var dir: string = ''
 
 	beforeEach(() =>
