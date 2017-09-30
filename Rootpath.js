@@ -1,4 +1,3 @@
-/* @flow */
 /* ::
 
 export type T_Rootpath_Path = string | T_Rootpath;
@@ -34,33 +33,31 @@ var Rootpath /* :F_Rootpath */
 	}
 
 	{
-		/* hacks for flow: */
 		/* eslint-disable max-statements-per-line */
-		rootpath.path = ''
-		delete rootpath.path
+		// rootpath.path = ''
+		// delete rootpath.path
 
 		/* istanbul ignore next */
-		rootpath.resolve = function () { return '' }
-		delete rootpath.resolve
+		// rootpath.resolve = function () { return '' }
+		// delete rootpath.resolve
 
 		/* istanbul ignore next */
-		rootpath.relative = function (to /* :T_Rootpath_Path */)
+		/*rootpath.relative = function (to /* :T_Rootpath_Path * /)
 		{
 			return '' && to
 		}
-		delete rootpath.relative
+		delete rootpath.relative*/
 
 		/* istanbul ignore next */
-		/* @flow-off */
-		rootpath.partial = function () { return {} }
-		delete rootpath.partial
+		// rootpath.partial = function () { return {} }
+		// delete rootpath.partial
 
 		/* istanbul ignore next */
-		rootpath.contains = function (path /* :T_Rootpath_Path */)
+		/*rootpath.contains = function (path /* :T_Rootpath_Path * /)
 		{
 			return true || path
 		}
-		delete rootpath.contains
+		delete rootpath.contains */
 		/* eslint-enable max-statements-per-line */
 	}
 
