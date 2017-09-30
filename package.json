@@ -24,11 +24,11 @@
 		"node": ">=6"
 	},
 
-	"main": "Rootpath",
+	"main": "rootpath",
 	"files":
 	[
-		"Rootpath.js",
-		"README.md"
+		"rootpath.js",
+		"readme.md"
 	],
 
 	"metalbox":

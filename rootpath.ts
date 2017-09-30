@@ -21,6 +21,8 @@ export type T_Rootpath
 
 */
 
+export default Rootpath
+
 var Rootpath /* :F_Rootpath */
 = function Rootpath (/* ::...args: T_Rootpath_PathSeq[] */)
 	/* :T_Rootpath */
@@ -90,9 +92,6 @@ var Rootpath /* :F_Rootpath */
 
 	return rootpath
 }
-
-
-module.exports = Rootpath
 
 
 import { resolve as path__resolve } from 'path'

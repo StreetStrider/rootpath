@@ -1,7 +1,7 @@
 
 import { deepEqual as eq } from 'assert'
 
-import Rootpath from '../'
+import Rootpath from '../rootpath'
 
 describe('Rootpath', () =>
 {
