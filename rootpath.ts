@@ -1,12 +1,16 @@
 
-; export type Rootpath$Segment = string
-// ; export type T_Rootpath_Path = string | $Rootpath
+; export type Rootpath$Segment = string | $Rootpath
 
 ; export type Rootpath$Path = Rootpath$Segment | Rootpath$Segment[] | Rootpath$Segment[][]
 
 // ; export type T_Rootpath_PathSeq = T_Rootpath_Path | T_Rootpath_Path[]
 
-; export interface Rootpath$Resolver    { (...args: Rootpath$Path[]): string }
+; export interface Rootpath$Resolver
+{
+	new (...args: Rootpath$Path[]): string,
+	(...args: Rootpath$Path[]): string,
+}
+
 ; export interface Rootpath$Constructor { (...args: Rootpath$Path[]): $Rootpath }
 
 ; export interface $Rootpath extends Rootpath$Resolver
@@ -16,7 +20,7 @@
 	relative(to: Rootpath$Segment): string,
 	partial: Rootpath$Constructor,
 	contains(path: Rootpath$Segment): boolean,
-	toString: () => string,
+	toString(): string,
 }
 
 
