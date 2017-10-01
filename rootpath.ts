@@ -27,14 +27,14 @@ import pathextra from 'node-path-extras'
 var Rootpath: Rootpath$Constructor
  = function Rootpath (...args: Rootpath$Path[]): $Rootpath
 {
-	var root = flat(args)
+	var base = flat(args)
 
 	var rootpath = function rootpath (...args: Rootpath$Path[])
 	{
-		return flat(root, args)
+		return flat(base, args)
 	}
 
-	enumvalue(rootpath, 'path', root)
+	enumvalue(rootpath, 'path', base)
 
 	value(rootpath, 'resolve', function resolve (...args: Rootpath$Path[])
 	{
@@ -43,7 +43,7 @@ var Rootpath: Rootpath$Constructor
 
 	value(rootpath, 'relative', function relative (to: Rootpath$Segment)
 	{
-		return path.relative(root, String(to))
+		return path.relative(base, String(to))
 	})
 
 	value(rootpath, 'partial', function partial (...args: Rootpath$Path[])
