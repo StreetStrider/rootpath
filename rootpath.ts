@@ -27,35 +27,6 @@ var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
 		return flatres(root, args)
 	}
 
-	{
-		/* eslint-disable max-statements-per-line */
-		// rootpath.path = ''
-		// delete rootpath.path
-
-		/* istanbul ignore next */
-		// rootpath.resolve = function () { return '' }
-		// delete rootpath.resolve
-
-		/* istanbul ignore next */
-		/*rootpath.relative = function (to /* :T_Rootpath_Path * /)
-		{
-			return '' && to
-		}
-		delete rootpath.relative*/
-
-		/* istanbul ignore next */
-		// rootpath.partial = function () { return {} }
-		// delete rootpath.partial
-
-		/* istanbul ignore next */
-		/*rootpath.contains = function (path /* :T_Rootpath_Path * /)
-		{
-			return true || path
-		}
-		delete rootpath.contains */
-		/* eslint-enable max-statements-per-line */
-	}
-
 	enumvalue(rootpath, 'path', root)
 
 	value(rootpath, 'resolve', function resolve (...args: T_Rootpath_Path[])
