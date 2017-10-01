@@ -20,11 +20,11 @@
 var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
 :T_Rootpath
 {
-	var root = flatres(args)
+	var root = flat(args)
 
 	var rootpath = function rootpath (...args: T_Rootpath_Path[])
 	{
-		return flatres(root, args)
+		return flat(root, args)
 	}
 
 	enumvalue(rootpath, 'path', root)
@@ -61,11 +61,11 @@ export default Rootpath
 
 
 import { resolve as path__resolve } from 'path'
-import flat from 'lodash.flattendeep'
+import flatten from 'lodash.flattendeep'
 
-function flatres (...args: T_Rootpath_PathSeq[]): string
+function flat (...args: T_Rootpath_PathSeq[]): string
 {
-	args = flat(args)
+	args = flatten(args)
 	args = args.map(String)
 
 	return path__resolve.apply(null, args)
