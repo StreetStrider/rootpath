@@ -79,12 +79,12 @@ function flat (...args: Rootpath$Path[]): string
 }
 
 
-function value (object, key, value)
+function value (object: Object, key: string, value: any)
 {
 	Object.defineProperty(object, key, { value: value })
 }
 
-function enumvalue (object, key, value)
+function enumvalue (object: Object, key: string, value: any)
 {
 	Object.defineProperty(object, key, { value: value, enumerable: true })
 }
