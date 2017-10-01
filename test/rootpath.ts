@@ -363,11 +363,11 @@ function $expectRootpathFunction (rootpath: any)
 	eq(rootpath.path, rootpath())
 
 	eq(typeof rootpath.resolve, 'function')
-	// eq(rootpath.resolve.name, 'resolve')
+	eq(rootpath.resolve.name, 'resolve')
 	eq(rootpath.path, rootpath.resolve())
 
 	eq(typeof rootpath.relative, 'function')
-	// eq(rootpath.relative.name, 'relative')
+	eq(rootpath.relative.name, 'relative')
 
 	eq(typeof rootpath.partial, 'function')
 	eq(rootpath.partial.name, 'partial')

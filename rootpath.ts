@@ -17,6 +17,11 @@
 	toString: () => string,
 }
 
+
+import path from 'path'
+import pathextra from 'node-path-extras'
+
+
 var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
 :T_Rootpath
 {
@@ -36,7 +41,7 @@ var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
 
 	value(rootpath, 'relative', function relative (to: T_Rootpath_Path)
 	{
-		return path__relative(root, String(to))
+		return path.relative(root, String(to))
 	})
 
 	value(rootpath, 'partial', function partial (...args: T_Rootpath_Path[])
@@ -46,7 +51,7 @@ var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
 
 	value(rootpath, 'contains', function contains (path: T_Rootpath_Path)
 	{
-		return path__contains(rootpath(), String(path))
+		return pathextra.contains(rootpath(), String(path))
 	})
 
 	value(rootpath, 'toString', function toString ()
@@ -60,7 +65,6 @@ var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
 export default Rootpath
 
 
-import { resolve as path__resolve } from 'path'
 import flatten from 'lodash.flattendeep'
 
 function flat (...args: T_Rootpath_PathSeq[]): string
@@ -68,12 +72,9 @@ function flat (...args: T_Rootpath_PathSeq[]): string
 	args = flatten(args)
 	args = args.map(String)
 
-	return path__resolve.apply(null, args)
+	return path.resolve.apply(null, args)
 }
 
-
-import { relative as path__relative } from 'path'
-import { contains as path__contains } from 'node-path-extras'
 
 function value (object, key, value)
 {
