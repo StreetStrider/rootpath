@@ -1,19 +1,21 @@
 
-; export type T_Rootpath_Path = string
-// ; export type T_Rootpath_Path = string | T_Rootpath
+; export type Rootpath$Segment = string
+// ; export type T_Rootpath_Path = string | $Rootpath
 
-; export type T_Rootpath_PathSeq = T_Rootpath_Path | T_Rootpath_Path[]
+; export type Rootpath$Path = Rootpath$Segment | Rootpath$Segment[] | Rootpath$Segment[][]
 
-; export interface F_Resolve  { (...args: T_Rootpath_PathSeq[]): string }
-; export interface F_Rootpath { (...args: T_Rootpath_PathSeq[]): T_Rootpath }
+// ; export type T_Rootpath_PathSeq = T_Rootpath_Path | T_Rootpath_Path[]
 
-; export interface T_Rootpath extends F_Resolve
+; export interface Rootpath$Resolver    { (...args: Rootpath$Path[]): string }
+; export interface Rootpath$Constructor { (...args: Rootpath$Path[]): $Rootpath }
+
+; export interface $Rootpath extends Rootpath$Resolver
 {
 	path: string,
-	resolve: F_Resolve,
-	relative(to: T_Rootpath_Path): string,
-	partial: F_Rootpath,
-	contains(path: T_Rootpath_Path): boolean,
+	resolve: Rootpath$Resolver,
+	relative(to: Rootpath$Segment): string,
+	partial: Rootpath$Constructor,
+	contains(path: Rootpath$Segment): boolean,
 	toString: () => string,
 }
 
@@ -22,34 +24,34 @@ import path from 'path'
 import pathextra from 'node-path-extras'
 
 
-var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
-:T_Rootpath
+var Rootpath: Rootpath$Constructor
+ = function Rootpath (...args: Rootpath$Path[]): $Rootpath
 {
 	var root = flat(args)
 
-	var rootpath = function rootpath (...args: T_Rootpath_Path[])
+	var rootpath = function rootpath (...args: Rootpath$Path[])
 	{
 		return flat(root, args)
 	}
 
 	enumvalue(rootpath, 'path', root)
 
-	value(rootpath, 'resolve', function resolve (...args: T_Rootpath_Path[])
+	value(rootpath, 'resolve', function resolve (...args: Rootpath$Path[])
 	{
 		return rootpath(args)
 	})
 
-	value(rootpath, 'relative', function relative (to: T_Rootpath_Path)
+	value(rootpath, 'relative', function relative (to: Rootpath$Segment)
 	{
 		return path.relative(root, String(to))
 	})
 
-	value(rootpath, 'partial', function partial (...args: T_Rootpath_Path[])
+	value(rootpath, 'partial', function partial (...args: Rootpath$Path[])
 	{
 		return Rootpath(rootpath(args))
 	})
 
-	value(rootpath, 'contains', function contains (path: T_Rootpath_Path)
+	value(rootpath, 'contains', function contains (path: Rootpath$Segment)
 	{
 		return pathextra.contains(rootpath(), String(path))
 	})
@@ -59,7 +61,8 @@ var Rootpath: F_Rootpath = function Rootpath (...args: T_Rootpath_Path[])
 		return rootpath()
 	})
 
-	return rootpath as T_Rootpath
+	return rootpath as $Rootpath
+	// return rootpath
 }
 
 export default Rootpath
@@ -67,7 +70,7 @@ export default Rootpath
 
 import flatten from 'lodash.flattendeep'
 
-function flat (...args: T_Rootpath_PathSeq[]): string
+function flat (...args: Rootpath$Path[]): string
 {
 	args = flatten(args)
 	args = args.map(String)
