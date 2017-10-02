@@ -31,8 +31,7 @@ import path from 'path'
 import pathextra from 'node-path-extras'
 
 
-var Rootpath: Rootpath$Constructor
- = function Rootpath (...args: Rootpath$Path[]): $Rootpath
+function Rootpath (...args: Rootpath$Path[]): $Rootpath
 {
 	var base = flat(args)
 
@@ -71,7 +70,7 @@ var Rootpath: Rootpath$Constructor
 	return rootpath as $Rootpath
 }
 
-export default Rootpath
+export default Rootpath as Rootpath$Constructor
 
 
 import flatten from 'lodash.flattendeep'
