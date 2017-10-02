@@ -7,11 +7,14 @@
 
 ; export interface Rootpath$Resolver
 {
-	new (...args: Rootpath$Path[]): string,
 	(...args: Rootpath$Path[]): string,
 }
 
-; export interface Rootpath$Constructor { (...args: Rootpath$Path[]): $Rootpath }
+; export interface Rootpath$Constructor
+{
+	new (...args: Rootpath$Path[]): $Rootpath,
+	(...args: Rootpath$Path[]): $Rootpath
+}
 
 ; export interface $Rootpath extends Rootpath$Resolver
 {
