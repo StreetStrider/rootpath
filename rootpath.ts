@@ -29,6 +29,9 @@
 
 import path from 'path'
 import pathextra from 'node-path-extras'
+import def from 'def-prop'
+
+var val = def.val
 
 
 function Rootpath (...args: Rootpath$Path[]): $Rootpath
@@ -40,32 +43,32 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 		return flat(base, args)
 	}
 
-	enumvalue(rootpath, 'path', base)
+	def(rootpath, 'path', val(base, ':enum'))
 
-	value(rootpath, 'resolve', function resolve (...args: Rootpath$Path[])
+	def(rootpath, 'resolve', val(function resolve (...args: Rootpath$Path[])
 	{
 		return rootpath(args)
-	})
+	}))
 
-	value(rootpath, 'relative', function relative (to: Rootpath$Segment)
+	def(rootpath, 'relative', val(function relative (to: Rootpath$Segment)
 	{
 		return path.relative(base, String(to))
-	})
+	}))
 
-	value(rootpath, 'partial', function partial (...args: Rootpath$Path[])
+	def(rootpath, 'partial', val(function partial (...args: Rootpath$Path[])
 	{
 		return Rootpath(rootpath(args))
-	})
+	}))
 
-	value(rootpath, 'contains', function contains (path: Rootpath$Segment)
+	def(rootpath, 'contains', val(function contains (path: Rootpath$Segment)
 	{
 		return pathextra.contains(rootpath(), String(path))
-	})
+	}))
 
-	value(rootpath, 'toString', function toString ()
+	def(rootpath, 'toString', val(function toString ()
 	{
 		return rootpath()
-	})
+	}))
 
 	return rootpath as $Rootpath
 }
@@ -81,15 +84,4 @@ function flat (...args: Rootpath$Path[]): string
 	args = args.map(String)
 
 	return path.resolve.apply(null, args)
-}
-
-
-function value (object: Object, key: string, value: any)
-{
-	Object.defineProperty(object, key, { value: value })
-}
-
-function enumvalue (object: Object, key: string, value: any)
-{
-	Object.defineProperty(object, key, { value: value, enumerable: true })
 }
