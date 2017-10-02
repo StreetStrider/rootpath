@@ -24,12 +24,12 @@ describe('Rootpath', () =>
 		it('can constructs with no arguments', () =>
 		{
 			{
-				var rootpath = new Rootpath
+				let rootpath = new Rootpath
 				eq(rootpath.path, '/tmp')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath()
+				let rootpath = Rootpath()
 				eq(rootpath.path, '/tmp')
 				$expectRootpathFunction(rootpath)
 			}
@@ -37,23 +37,23 @@ describe('Rootpath', () =>
 		it('can constructs with single argument', () =>
 		{
 			{
-				var rootpath = new Rootpath('a')
+				let rootpath = new Rootpath('a')
 				eq(rootpath.path, '/tmp/a')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath('a')
+				let rootpath = Rootpath('a')
 				eq(rootpath.path, '/tmp/a')
 				$expectRootpathFunction(rootpath)
 			}
 
 			{
-				var rootpath = new Rootpath('a/')
+				let rootpath = new Rootpath('a/')
 				eq(rootpath.path, '/tmp/a')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath('a/')
+				let rootpath = Rootpath('a/')
 				eq(rootpath.path, '/tmp/a')
 				$expectRootpathFunction(rootpath)
 			}
@@ -61,12 +61,12 @@ describe('Rootpath', () =>
 		it('can constructs upper level', () =>
 		{
 			{
-				var rootpath = new Rootpath('..')
+				let rootpath = new Rootpath('..')
 				eq(rootpath.path, '/')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = new Rootpath('../')
+				let rootpath = new Rootpath('../')
 				eq(rootpath.path, '/')
 				$expectRootpathFunction(rootpath)
 			}
@@ -74,40 +74,40 @@ describe('Rootpath', () =>
 		it('can constructs with multiple arguments', () =>
 		{
 			{
-				var rootpath = new Rootpath('a', 'b')
+				let rootpath = new Rootpath('a', 'b')
 				eq(rootpath.path, '/tmp/a/b')
 			}
 			{
-				var rootpath = Rootpath('a', 'b')
+				let rootpath = Rootpath('a', 'b')
 				eq(rootpath.path, '/tmp/a/b')
 			}
 
 			{
-				var rootpath = new Rootpath('a/', 'b/')
+				let rootpath = new Rootpath('a/', 'b/')
 				eq(rootpath.path, '/tmp/a/b')
 			}
 			{
-				var rootpath = Rootpath('a/', 'b/')
+				let rootpath = Rootpath('a/', 'b/')
 				eq(rootpath.path, '/tmp/a/b')
 			}
 		})
 		it('can constructs with non-flat arguments', () =>
 		{
 			{
-				var rootpath = new Rootpath('a', [ 'b', 'c' ], [ 'd' ])
+				let rootpath = new Rootpath('a', [ 'b', 'c' ], [ 'd' ])
 				eq(rootpath.path, '/tmp/a/b/c/d')
 			}
 			{
-				var rootpath = Rootpath('a', [ 'b', 'c' ], [ 'd' ])
+				let rootpath = Rootpath('a', [ 'b', 'c' ], [ 'd' ])
 				eq(rootpath.path, '/tmp/a/b/c/d')
 			}
 
 			{
-				var rootpath = new Rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]])
+				let rootpath = new Rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]])
 				eq(rootpath.path, '/tmp/a/b/c/d')
 			}
 			{
-				var rootpath = Rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]])
+				let rootpath = Rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]])
 				eq(rootpath.path, '/tmp/a/b/c/d')
 			}
 		})
@@ -233,12 +233,12 @@ describe('Rootpath', () =>
 		it('can partial with single argument', () =>
 		{
 			{
-				var rootpath = Rootpath('a').partial('b')
+				let rootpath = Rootpath('a').partial('b')
 				eq(rootpath.path, '/tmp/a/b')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath('a/').partial('b/')
+				let rootpath = Rootpath('a/').partial('b/')
 				eq(rootpath.path, '/tmp/a/b')
 				$expectRootpathFunction(rootpath)
 			}
@@ -246,12 +246,12 @@ describe('Rootpath', () =>
 		it('can partial upper level', () =>
 		{
 			{
-				var rootpath = Rootpath('a').partial('..')
+				let rootpath = Rootpath('a').partial('..')
 				eq(rootpath.path, '/tmp')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath('a/').partial('../')
+				let rootpath = Rootpath('a/').partial('../')
 				eq(rootpath.path, '/tmp')
 				$expectRootpathFunction(rootpath)
 			}
@@ -259,12 +259,12 @@ describe('Rootpath', () =>
 		it('can partial with multiple arguments', () =>
 		{
 			{
-				var rootpath = Rootpath('a').partial('b', 'c')
+				let rootpath = Rootpath('a').partial('b', 'c')
 				eq(rootpath.path, '/tmp/a/b/c')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath('a/').partial('b', 'c/')
+				let rootpath = Rootpath('a/').partial('b', 'c/')
 				eq(rootpath.path, '/tmp/a/b/c')
 				$expectRootpathFunction(rootpath)
 			}
@@ -272,22 +272,22 @@ describe('Rootpath', () =>
 		it('can partial with non-flat arguments', () =>
 		{
 			{
-				var rootpath = Rootpath().partial('a', [ 'b', 'c' ], 'd')
+				let rootpath = Rootpath().partial('a', [ 'b', 'c' ], 'd')
 				eq(rootpath.path, '/tmp/a/b/c/d')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath().partial('a', [ 'b', 'c' ], 'd/')
+				let rootpath = Rootpath().partial('a', [ 'b', 'c' ], 'd/')
 				eq(rootpath.path, '/tmp/a/b/c/d')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath().partial('a', [ 'b', [ 'c' ]], [[ 'd' ]])
+				let rootpath = Rootpath().partial('a', [ 'b', [ 'c' ]], [[ 'd' ]])
 				eq(rootpath.path, '/tmp/a/b/c/d')
 				$expectRootpathFunction(rootpath)
 			}
 			{
-				var rootpath = Rootpath().partial('a', [ 'b', [ 'c' ]], [[ 'd/' ]])
+				let rootpath = Rootpath().partial('a', [ 'b', [ 'c' ]], [[ 'd/' ]])
 				eq(rootpath.path, '/tmp/a/b/c/d')
 				$expectRootpathFunction(rootpath)
 			}
