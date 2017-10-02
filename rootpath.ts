@@ -1,9 +1,9 @@
 
 ; export type Rootpath$Segment = string | $Rootpath
 
-; export type Rootpath$Path = Rootpath$Segment | Rootpath$Segment[] | Rootpath$Segment[][]
+; interface Recursive<T> extends Array<T|Recursive<T>> {}
 
-// ; export type T_Rootpath_PathSeq = T_Rootpath_Path | T_Rootpath_Path[]
+; export type Rootpath$Path = Rootpath$Segment | Recursive<Rootpath$Segment>
 
 ; export interface Rootpath$Resolver
 {
@@ -66,7 +66,6 @@ var Rootpath: Rootpath$Constructor
 	})
 
 	return rootpath as $Rootpath
-	// return rootpath
 }
 
 export default Rootpath
