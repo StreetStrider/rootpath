@@ -12,3 +12,14 @@ declare module 'lodash.flattendeep'
 	export default flattenDeep
 }
 
+declare module 'node-path-extras'
+{
+	interface Extras
+	{
+		contains (path: string, subPath: string): boolean,
+	}
+
+	var extras: Extras
+
+	export default extras
+}
