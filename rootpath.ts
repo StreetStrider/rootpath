@@ -1,4 +1,5 @@
 /// <reference path="index.d.ts" />
+/// <reference path="./node_modules/def-prop/def.d.ts" />
 
 ; export type Rootpath$Segment = string | $Rootpath
 
