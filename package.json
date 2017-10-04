@@ -88,7 +88,7 @@
 	},
 	"devDependencies":
 	{
-		"@types/lodash.flattendeep":
+		"@types/lodash":
 			"^4.3",
 
 		"@types/node":

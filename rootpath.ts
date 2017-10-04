@@ -1,3 +1,4 @@
+/// <reference path="index.d.ts" />
 
 ; export type Rootpath$Segment = string | $Rootpath
 
