@@ -27,8 +27,9 @@
 	"main": "rootpath",
 	"files":
 	[
-		"rootpath.js",
-		"readme.md"
+		"*.js",
+		"*.ts",
+		"!.eslintrc.js"
 	],
 
 	"metalbox":
