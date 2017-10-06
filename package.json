@@ -104,14 +104,14 @@
 
 
 		"eslint":
-			"^3.12",
+			"4",
 
 		"js-outlander":
 			"StrangeTransistor/js-outlander#2.1.1",
 
 
 		"flow-bin":
-			"0.55",
+			"0.56",
 
 
 		"typescript":
@@ -122,12 +122,12 @@
 
 
 		"mocha":
-			"^3",
+			"4",
 
 		"istanbul":
-			"^0.4",
+			"0.4",
 
 		"istanbul-coveralls":
-			"^1"
+			"1"
 	}
 }
