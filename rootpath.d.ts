@@ -1,11 +1,11 @@
 
 declare module '@streetstrider/rootpath'
 {
-	export type Rootpath$Segment = string | $Rootpath
+	export type Rootpath$Segment = string | $Rootpath;
 
 	interface Recursive<T> extends Array<T|Recursive<T>> {}
 
-	export type Rootpath$Path = Rootpath$Segment | Recursive<Rootpath$Segment>
+	export type Rootpath$Path = Rootpath$Segment | Recursive<Rootpath$Segment>;
 
 	export interface Rootpath$Resolver
 	{
@@ -28,7 +28,7 @@ declare module '@streetstrider/rootpath'
 		toString(): string,
 	}
 
-	var Rootpath: Rootpath$Constructor
+	const Rootpath: Rootpath$Constructor
 
 	export default Rootpath
 }
