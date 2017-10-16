@@ -85,7 +85,10 @@
 			"0.4",
 
 		"def-prop":
-			"1.1"
+			"1.1",
+
+		"typescript-helpers":
+			"1"
 	},
 	"devDependencies":
 	{
@@ -116,9 +119,6 @@
 
 		"typescript":
 			"2.5",
-
-		"typescript-helpers":
-			"1",
 
 
 		"mocha":
