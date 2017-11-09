@@ -7,7 +7,11 @@ declare module 'path'
 
 declare module 'find-root'
 {
-	export default (string: string) => string;
+	type FindRoot = (string: string) => string;
+
+	const findRoot: FindRoot;
+
+	export default findRoot;
 }
 
 declare module 'lodash.flattendeep'
@@ -24,7 +28,7 @@ declare module 'node-path-extras'
 		contains (path: string, subPath: string): boolean,
 	}
 
-	var extras: Extras
+	const extras: Extras
 
 	export default extras
 }

@@ -101,7 +101,7 @@ import flatten from 'lodash.flattendeep'
 
 function flat (...args: Rootpath$Path[]): string
 {
-	args = flatten(args)
+	args = (flatten(args) as Rootpath$Path[])
 	args = args.map(String)
 
 	return path.resolve.apply(null, args)
