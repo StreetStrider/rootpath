@@ -1,4 +1,6 @@
 
+import { join } from 'path'
+
 import { deepEqual as eq } from 'assert'
 
 import Rootpath from '../rootpath'
@@ -21,6 +23,38 @@ describe('Rootpath', () =>
 
 	describe('new Rootpath(), Rootpath()', () =>
 	{
+		var frompackage = join(__dirname, '/..')
+
+		it('can constructs with no arguments inside package', () =>
+		{
+			process.chdir(frompackage)
+
+			{
+				let rootpath = new Rootpath
+				eq(rootpath.path, frompackage)
+				$expectRootpathFunction(rootpath)
+			}
+			{
+				let rootpath = Rootpath()
+				eq(rootpath.path, frompackage)
+				$expectRootpathFunction(rootpath)
+			}
+		})
+		it('can constructs with no arguments deep inside package', () =>
+		{
+			process.chdir(join(frompackage, 'test'))
+
+			{
+				let rootpath = new Rootpath
+				eq(rootpath.path, frompackage)
+				$expectRootpathFunction(rootpath)
+			}
+			{
+				let rootpath = Rootpath()
+				eq(rootpath.path, frompackage)
+				$expectRootpathFunction(rootpath)
+			}
+		})
 		it('can constructs with no arguments', () =>
 		{
 			{

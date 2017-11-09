@@ -38,7 +38,7 @@ var val = def.val
 
 function Rootpath (...args: Rootpath$Path[]): $Rootpath
 {
-	var base = flat(args)
+	var base = determine(args)
 
 	var rootpath = function rootpath (...args: Rootpath$Path[])
 	{
@@ -76,6 +76,25 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 }
 
 export default Rootpath as Rootpath$Constructor
+
+
+import find_root from 'find-root'
+
+function determine (args: Rootpath$Path[])
+{
+	if (args.length)
+	{
+		return flat(args)
+	}
+	else try
+	{
+		return find_root(process.cwd())
+	}
+	catch (e)
+	{
+		return flat()
+	}
+}
 
 
 import flatten from 'lodash.flattendeep'

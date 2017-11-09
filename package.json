@@ -78,6 +78,9 @@
 
 	"dependencies":
 	{
+		"find-root":
+			"1",
+
 		"lodash.flattendeep":
 			"4.4",
 

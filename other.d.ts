@@ -5,6 +5,11 @@ declare module 'path'
 	export default node__path
 }
 
+declare module 'find-root'
+{
+	export default (string: string) => string;
+}
+
 declare module 'lodash.flattendeep'
 {
 	import { flattenDeep } from 'lodash'
