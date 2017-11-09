@@ -60,6 +60,11 @@ function App ()
 }
 ```
 
+## new in v2
+* `rootpath()` without arguments now works as [`find-root`](https://www.npmjs.com/package/find-root) and use `process.cwd()` as fallback.
+* support TypeScript and Flow.
+* support glob expressions.
+
 ## install
 ```
 npm install @streetstrider/rootpath
