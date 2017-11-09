@@ -97,5 +97,10 @@ var rootpath = Rootpath(another_rootpath, 'some/path')
 ## types
 We're providing built-in [TypeScript](http://typescriptlang.org/) & [Flow](https://flowtype.org/) type definitions.
 
+You might need to include
+```ts
+/// <reference path='node_modules/@streetstrider/rootpath/rootpath.module.d.ts' />
+```
+
 ## license
 ISC. © Strider, 2013 — 2017.
