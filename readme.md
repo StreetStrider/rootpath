@@ -63,7 +63,7 @@ function App ()
 ## new in v2
 * `rootpath()` without arguments now works as [`find-root`](https://www.npmjs.com/package/find-root) and use `process.cwd()` as fallback.
 * support TypeScript and Flow.
-* support glob expressions.
+* support glob expressions (including glob negation).
 
 ## install
 ```
@@ -71,10 +71,11 @@ npm install @streetstrider/rootpath
 ```
 
 ## API
-Behavior of function is similar to std `path#resolve`. In addition it also flattens any arrays found in arguments. It will resolve path relative to `process.cwd()` if path would not absolute after all computations.
+Behavior of this module is similar to std's `path#resolve`. In addition it also flattens any arrays found in arguments. It will resolve path relative to `process.cwd()` if path would not be absolute after all computations. This also include glob support and glob negation.
 
 ```javascript
-// rootpath with process.cwd() root.
+// rootpath with package root or process.cwd() if not inside package.
+// any path may be also a glob, including negative glob
 new Rootpath(), Rootpath()
 
 // rootpath with given path root
