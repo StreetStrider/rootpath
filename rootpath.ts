@@ -62,9 +62,9 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 		return Rootpath(rootpath(args))
 	}))
 
-	def(rootpath, 'contains', val(function contains (path: Rootpath$Segment)
+	def(rootpath, 'contains', val(function contains (it: Rootpath$Segment)
 	{
-		return pathextra.contains(rootpath(), String(path))
+		return pathextra.contains(rootpath(), String(it))
 	}))
 
 	def(rootpath, 'toString', val(function toString ()
