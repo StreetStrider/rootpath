@@ -42,7 +42,7 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 
 	var rootpath = function rootpath (...args: Rootpath$Path[])
 	{
-		return flat(base, args)
+		return resolve(base, args)
 	}
 
 	def(rootpath, 'path', val(base, ':enum'))
@@ -84,7 +84,7 @@ function determine (args: Rootpath$Path[])
 {
 	if (args.length)
 	{
-		return flat(args)
+		return resolve(args)
 	}
 	else try
 	{
@@ -92,17 +92,45 @@ function determine (args: Rootpath$Path[])
 	}
 	catch (e)
 	{
-		return flat()
+		return resolve()
 	}
 }
 
 
 import flatten from 'lodash.flattendeep'
+import globjoin from 'globjoin'
 
-function flat (...args: Rootpath$Path[]): string
+function resolve (...args: Rootpath$Path[]): string
 {
 	args = (flatten(args) as Rootpath$Path[])
-	args = args.map(String)
 
-	return path.resolve.apply(null, args)
+	var resolved = ''
+
+	while (args.length && ! is_absolute(resolved))
+	{
+		var arg = String(args.pop())
+		resolved = globjoin(arg, resolved)
+	}
+
+	if (! is_absolute(resolved))
+	{
+		resolved = globjoin(process.cwd(), resolved)
+	}
+
+	if (resolved !== '/' && resolved.slice(-1) === '/')
+	{
+		resolved = resolved.slice(0, -1)
+	}
+
+	return resolved
+}
+
+function is_absolute (arg: string): boolean
+{
+	if (arg[0] === '!')
+	{
+		arg = arg.slice(1)
+	}
+
+	return path.isAbsolute(arg)
 }
