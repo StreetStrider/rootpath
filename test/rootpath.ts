@@ -190,7 +190,7 @@ describe('Rootpath', () =>
 			}
 
 		})
-		it('can resolve upper level', () =>
+		it('can resolve this level (.)', () =>
 		{
 			var rootpath = Rootpath()
 			{
@@ -200,6 +200,18 @@ describe('Rootpath', () =>
 			{
 				eq(rootpath('..'), '/')
 				eq(rootpath('../'), '/')
+			}
+		})
+		it('can resolve upper level (..)', () =>
+		{
+			var rootpath = Rootpath()
+			{
+				eq(rootpath.resolve('.'), '/tmp')
+				eq(rootpath.resolve('./'), '/tmp')
+			}
+			{
+				eq(rootpath('.'), '/tmp')
+				eq(rootpath('./'), '/tmp')
 			}
 		})
 		it('can resolve with multiple arguments', () =>
@@ -231,6 +243,18 @@ describe('Rootpath', () =>
 			}
 			{
 				eq(rootpath('a', [ 'b', [ 'c' ]], [[ 'd' ]]), '/tmp/a/b/c/d')
+			}
+		})
+		it('can resolve with absolute paths', () =>
+		{
+			var rootpath = Rootpath()
+			{
+				eq(rootpath.resolve('abc', '/def'), '/def')
+				eq(rootpath.resolve('abc/', '/def/'), '/def')
+			}
+			{
+				eq(rootpath('abc', '/def'), '/def')
+				eq(rootpath('abc/', '/def/'), '/def')
 			}
 		})
 	})
