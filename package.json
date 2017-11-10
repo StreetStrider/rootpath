@@ -85,6 +85,9 @@
 		"lodash.flattendeep":
 			"4.4",
 
+		"globjoin":
+			"0.1",
+
 		"node-path-extras":
 			"0.4",
 

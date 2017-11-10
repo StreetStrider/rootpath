@@ -9,9 +9,18 @@ declare module 'find-root'
 {
 	type FindRoot = (string: string) => string;
 
-	const findRoot: FindRoot;
+	const findRoot: FindRoot
 
-	export default findRoot;
+	export default findRoot
+}
+
+declare module 'globjoin'
+{
+	type GlobJoin = (...args: string[]) => string;
+
+	const globJoin: GlobJoin
+
+	export default globJoin
 }
 
 declare module 'lodash.flattendeep'
