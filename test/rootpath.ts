@@ -145,6 +145,25 @@ describe('Rootpath', () =>
 				eq(rootpath.path, '/tmp/a/b/c/d')
 			}
 		})
+		it('can constructs with absolute paths', () =>
+		{
+			{
+				let rootpath = new Rootpath('abc', '/def')
+				eq(rootpath.path, '/def')
+			}
+			{
+				let rootpath = new Rootpath('abc', '/def/')
+				eq(rootpath.path, '/def')
+			}
+			{
+				let rootpath = Rootpath('abc', '/def')
+				eq(rootpath.path, '/def')
+			}
+			{
+				let rootpath = Rootpath('abc', '/def/')
+				eq(rootpath.path, '/def')
+			}
+		})
 		it('can constructs with glob', () =>
 		{
 			{
