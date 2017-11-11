@@ -145,6 +145,44 @@ describe('Rootpath', () =>
 				eq(rootpath.path, '/tmp/a/b/c/d')
 			}
 		})
+		it('can constructs with glob', () =>
+		{
+			{
+				let rootpath = new Rootpath('**', 'b/', '*/', 'c')
+				eq(rootpath.path, '/tmp/**/b/*/c')
+			}
+			{
+				let rootpath = new Rootpath('**', 'b/', '*/', 'c/')
+				eq(rootpath.path, '/tmp/**/b/*/c')
+			}
+			{
+				let rootpath = Rootpath('**', 'b/', '*/', 'c')
+				eq(rootpath.path, '/tmp/**/b/*/c')
+			}
+			{
+				let rootpath = Rootpath('**', 'b/', '*/', 'c/')
+				eq(rootpath.path, '/tmp/**/b/*/c')
+			}
+		})
+		it('can constructs with negative glob', () =>
+		{
+			{
+				let rootpath = new Rootpath('**', '!b/', '*/', 'c')
+				eq(rootpath.path, '!/tmp/**/b/*/c')
+			}
+			{
+				let rootpath = new Rootpath('**', '!b/', '*/', 'c/')
+				eq(rootpath.path, '!/tmp/**/b/*/c')
+			}
+			{
+				let rootpath = Rootpath('**', '!b/', '*/', 'c')
+				eq(rootpath.path, '!/tmp/**/b/*/c')
+			}
+			{
+				let rootpath = Rootpath('**', '!b/', '*/', 'c/')
+				eq(rootpath.path, '!/tmp/**/b/*/c')
+			}
+		})
 	})
 
 	describe('Rootpath#path', () =>
@@ -257,6 +295,38 @@ describe('Rootpath', () =>
 				eq(rootpath('abc/', '/def/'), '/def')
 			}
 		})
+		it('can resolve with glob', () =>
+		{
+			var rootpath = new Rootpath()
+			{
+				eq(rootpath.resolve('**', 'b/', '*', 'c'), '/tmp/**/b/*/c')
+			}
+			{
+				eq(rootpath('**', 'b/', '*', 'c'), '/tmp/**/b/*/c')
+			}
+			{
+				eq(rootpath.resolve('**', 'b/', '*', 'c/'), '/tmp/**/b/*/c')
+			}
+			{
+				eq(rootpath('**', 'b/', '*', 'c/'), '/tmp/**/b/*/c')
+			}
+		})
+		it('can resolve with negative glob', () =>
+		{
+			var rootpath = new Rootpath()
+			{
+				eq(rootpath.resolve('**', '!b/', '*', 'c'), '!/tmp/**/b/*/c')
+			}
+			{
+				eq(rootpath('**', '!b/', '*', 'c'), '!/tmp/**/b/*/c')
+			}
+			{
+				eq(rootpath.resolve('**', '!b/', '*', 'c/'), '!/tmp/**/b/*/c')
+			}
+			{
+				eq(rootpath('**', '!b/', '*', 'c/'), '!/tmp/**/b/*/c')
+			}
+		})
 	})
 
 	describe('Rootpath#relative()', () =>
@@ -347,6 +417,14 @@ describe('Rootpath', () =>
 			{
 				let rootpath = Rootpath().partial('a', [ 'b', [ 'c' ]], [[ 'd/' ]])
 				eq(rootpath.path, '/tmp/a/b/c/d')
+				$expectRootpathFunction(rootpath)
+			}
+		})
+		it('can partial with glob', () =>
+		{
+			{
+				let rootpath = Rootpath('a').partial('**', 'b/')
+				eq(rootpath.path, '/tmp/a/**/b')
 				$expectRootpathFunction(rootpath)
 			}
 		})
