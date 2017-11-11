@@ -25,7 +25,7 @@ describe('Rootpath', () =>
 	{
 		var frompackage = join(__dirname, '/..')
 
-		it('can constructs with no arguments inside package', () =>
+		it('can construct with no arguments inside package', () =>
 		{
 			process.chdir(frompackage)
 
@@ -40,7 +40,7 @@ describe('Rootpath', () =>
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs with no arguments deep inside package', () =>
+		it('can construct with no arguments deep inside package', () =>
 		{
 			process.chdir(join(frompackage, 'test'))
 
@@ -55,7 +55,7 @@ describe('Rootpath', () =>
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs with no arguments', () =>
+		it('can construct with no arguments', () =>
 		{
 			{
 				let rootpath = new Rootpath
@@ -68,7 +68,7 @@ describe('Rootpath', () =>
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs with single argument', () =>
+		it('can construct with single argument', () =>
 		{
 			{
 				let rootpath = new Rootpath('a')
@@ -92,7 +92,7 @@ describe('Rootpath', () =>
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs upper level', () =>
+		it('can construct upper level', () =>
 		{
 			{
 				let rootpath = new Rootpath('..')
@@ -105,7 +105,7 @@ describe('Rootpath', () =>
 				$expectRootpathFunction(rootpath)
 			}
 		})
-		it('can constructs with multiple arguments', () =>
+		it('can construct with multiple arguments', () =>
 		{
 			{
 				let rootpath = new Rootpath('a', 'b')
@@ -125,7 +125,7 @@ describe('Rootpath', () =>
 				eq(rootpath.path, '/tmp/a/b')
 			}
 		})
-		it('can constructs with non-flat arguments', () =>
+		it('can construct with non-flat arguments', () =>
 		{
 			{
 				let rootpath = new Rootpath('a', [ 'b', 'c' ], [ 'd' ])
@@ -145,7 +145,7 @@ describe('Rootpath', () =>
 				eq(rootpath.path, '/tmp/a/b/c/d')
 			}
 		})
-		it('can constructs with absolute paths', () =>
+		it('can construct with absolute paths', () =>
 		{
 			{
 				let rootpath = new Rootpath('abc', '/def')
@@ -164,7 +164,7 @@ describe('Rootpath', () =>
 				eq(rootpath.path, '/def')
 			}
 		})
-		it('can constructs with glob', () =>
+		it('can construct with glob', () =>
 		{
 			{
 				let rootpath = new Rootpath('**', 'b/', '*/', 'c')
@@ -183,7 +183,7 @@ describe('Rootpath', () =>
 				eq(rootpath.path, '/tmp/**/b/*/c')
 			}
 		})
-		it('can constructs with negative glob', () =>
+		it('can construct with negative glob', () =>
 		{
 			{
 				let rootpath = new Rootpath('**', '!b/', '*/', 'c')
