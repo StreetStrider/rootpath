@@ -109,4 +109,4 @@ You might need to include
 ```
 
 ## license
-ISC. © Strider, 2013 — 2017.
+ISC. © Strider, 2013 — 2018.
