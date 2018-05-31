@@ -11,8 +11,9 @@
 	[
 		"rootpath", "root", "fs",
 		"path", "resolve", "absolute", "relative", "contains",
+		"glob",
 		"flatten",
-		"flow"
+		"flow", "typescript"
 	],
 
 	"homepage":            "https://github.com/StreetStrider/rootpath",
