@@ -17,6 +17,8 @@ export interface Rootpath$Constructor
 
 export interface $Rootpath extends Rootpath$Resolver
 {
+	/* must be derived from Rootpath$Resolver but it's not */
+	(...args: Rootpath$Path[]): string,
 	path: string,
 	resolve: Rootpath$Resolver,
 	relative(to: Rootpath$Segment): string,
