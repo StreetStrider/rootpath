@@ -2,25 +2,22 @@
 declare module 'path'
 {
 	import * as node__path from 'path'
+
 	export default node__path
 }
 
 declare module 'find-root'
 {
-	type FindRoot = (string: string) => string;
+	type FindRootCheckFn = (dir: string) => boolean
 
-	const findRoot: FindRoot
-
-	export default findRoot
+	export default function findRoot(startingPath: string, check?: FindRootCheckFn): string
 }
 
 declare module 'globjoin'
 {
-	type GlobJoin = (...args: string[]) => string;
-
-	const globJoin: GlobJoin
-
-	export default globJoin
+	export default function globjoin(...globs: string[]): string
+	;
+	export default function globjoin(...globs: Array<string | string[]>): string[]
 }
 
 declare module 'lodash.flattendeep'
