@@ -1,9 +1,9 @@
 
-export declare type Rootpath$Segment = string | $Rootpath;
+export type Rootpath$Segment = string | $Rootpath;
 
 interface Recursive<T> extends Array<T|Recursive<T>> {}
 
-export declare type Rootpath$Path = Rootpath$Segment | Recursive<Rootpath$Segment>;
+export type Rootpath$Path = Rootpath$Segment | Recursive<Rootpath$Segment>;
 
 export interface Rootpath$Resolver
 {

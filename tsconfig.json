@@ -2,6 +2,7 @@
 	"files":
 	[
 		"rootpath.ts",
+		"rootpath.d.ts",
 
 		"test/rootpath.ts",
 
