@@ -1,5 +1,6 @@
 /// <reference path='node_modules/def-prop/def.d.ts' />
 /// <reference path='other.d.ts' />
+/* eslint complexity: [ 2, 6 ] */
 
 ; export type Rootpath$Segment = string | $Rootpath
 
@@ -86,6 +87,7 @@ function determine (args: Rootpath$Path[])
 	{
 		return resolve(args)
 	}
+	// eslint-disable-next-line curly
 	else try
 	{
 		return find_root(process.cwd())
