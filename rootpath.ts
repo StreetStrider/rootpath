@@ -1,4 +1,3 @@
-/// <reference path='node_modules/def-prop/def.d.ts' />
 /* eslint complexity: [ 2, 6 ] */
 
 ; export type Rootpath$Segment = string | $Rootpath
