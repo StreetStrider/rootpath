@@ -64,8 +64,11 @@
 		"ts":
 			"tsc",
 
+		"dts":
+			"dtslint --expectOnly --localTs ./node_modules/typescript/lib",
+
 		"t":
-			"npm run flow && npm run ts",
+			"npm run flow && npm run ts && npm run dts",
 
 		 "unit":                 "mocha -R dot --check-leaks --recursive release/dev/test/",
 		"cover": "istanbul cover _mocha     -- --check-leaks --recursive release/dev/test/",
@@ -130,6 +133,9 @@
 
 		"typescript":
 			"3.7",
+
+		"dtslint":
+			"2",
 
 
 		"mocha":

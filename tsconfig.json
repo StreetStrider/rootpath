@@ -6,6 +6,8 @@
 
 		"test/rootpath.ts",
 
+		"test/types.ts",
+
 		"ambient.d.ts"
 	],
 	"compilerOptions":
@@ -15,6 +17,7 @@
 
 		"strict": true,
 		"target": "ES6",
+		"lib":  [ "ES6" ],
 
 		"allowJs": true,
 		"checkJs": false,
