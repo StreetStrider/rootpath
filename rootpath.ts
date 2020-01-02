@@ -28,12 +28,11 @@
 }
 
 
+import def from 'def-prop'
+import val from 'def-prop/val'
+
 import path from 'path'
 import pathextra from 'node-path-extras'
-import def from 'def-prop'
-
-var val = def.val
-
 
 function Rootpath (...args: Rootpath$Path[]): $Rootpath
 {
@@ -97,7 +96,7 @@ function determine (args: Rootpath$Path[])
 }
 
 
-import flatten from 'lodash.flattendeep'
+import flatten  from 'lodash.flattendeep'
 import globjoin from 'globjoin'
 
 function resolve (...args: Rootpath$Path[]): string
