@@ -1,13 +1,13 @@
 {
+	"extends": "../tsconfig.json",
+
 	"files":
 	[
-		"rootpath.ts",
-		"rootpath.d.ts",
+		"types.ts",
 
-		"test/rootpath.ts",
-
-		"ambient.d.ts"
+		"../ambient.d.ts"
 	],
+
 	"compilerOptions":
 	{
 		"noEmit": true,

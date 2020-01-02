@@ -65,7 +65,7 @@
 			"tsc",
 
 		"dts":
-			"dtslint --expectOnly --localTs ./node_modules/typescript/lib",
+			"dtslint --expectOnly --localTs ./node_modules/typescript/lib test",
 
 		"t":
 			"npm run flow && npm run ts && npm run dts",
