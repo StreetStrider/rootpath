@@ -1,24 +1,22 @@
 /* @flow */
 
-export type Rootpath$Segment = string | $Rootpath;
+export type Rootpath$Segment = (string | $Rootpath)
 
-export type Rootpath$Path = Rootpath$Segment | Rootpath$Path[];
+export type Rootpath$Path = (Rootpath$Segment | Rootpath$Path[])
 
-export interface Rootpath$Resolver
+export type Rootpath$Resolver =
 {
 	(...args: Rootpath$Path[]): string,
 }
 
-export interface Rootpath$Constructor
+export type Rootpath$Constructor =
 {
 	new (...args: Rootpath$Path[]): $Rootpath,
-	(...args: Rootpath$Path[]): $Rootpath
+	(...args: Rootpath$Path[]): $Rootpath,
 }
 
-export interface $Rootpath extends Rootpath$Resolver
+export type $Rootpath = Rootpath$Resolver &
 {
-	/* must be derived from Rootpath$Resolver but it's not */
-	(...args: Rootpath$Path[]): string,
 	path: string,
 	resolve: Rootpath$Resolver,
 	relative(to: Rootpath$Segment): string,

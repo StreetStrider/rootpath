@@ -59,7 +59,7 @@
 			"eslint --ext ts rootpath.ts test/",
 
 		"flow":
-			"glow || flow",
+			"flow check",
 
 		"ts":
 			"tsc",
@@ -128,7 +128,7 @@
 
 
 		"flow-bin":
-			"0.77",
+			"0.114",
 
 
 		"typescript":
