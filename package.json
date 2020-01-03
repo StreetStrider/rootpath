@@ -34,25 +34,16 @@
 		"!.eslintrc.js"
 	],
 
-	"metalbox":
-	{
-		"presets":
-		{
-			"dev": [ "Library/Dev", { "options": { "targets": "node-first" }} ],
-			"npm": [ "Library",     { "options": { "targets": "node-first" }} ]
-		}
-	},
-
 	"scripts":
 	{
 		"start":
-			"metalbox preset dev",
+			"gulp",
 
 		"release/dev":
-			"metalbox preset dev -1",
+			"gulp --once",
 
 		"release":
-			"metalbox preset npm",
+			"gulp --final --to npm",
 
 
 		"st":
@@ -96,10 +87,7 @@
 			"0.4",
 
 		"def-prop":
-			"2",
-
-		"typescript-helpers":
-			"1"
+			"2"
 	},
 	"devDependencies":
 	{
@@ -113,8 +101,14 @@
 			"2",
 
 
-		"metalbox":
-			"1.16.0",
+		"gulp":
+			"4",
+
+		"metalpipe":
+			"StrangeTransistor/metalpipe#master",
+
+		"rollup":
+			"1.27",
 
 
 		"eslint":
