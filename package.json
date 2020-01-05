@@ -1,6 +1,6 @@
 {
 	"name":    "@streetstrider/rootpath",
-	"version": "2.0.4",
+	"version": "2.0.5-pre1",
 
 	"description": "pivot for path hierarchy",
 
@@ -110,7 +110,7 @@
 			"4",
 
 		"metalpipe":
-			"StrangeTransistor/metalpipe#master",
+			"^1.1",
 
 		"rollup":
 			"1.28",
