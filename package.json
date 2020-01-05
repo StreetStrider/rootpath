@@ -61,15 +61,14 @@
 		"t":
 			"npm run flow && npm run ts && npm run dts",
 
-		 "unit":                 "mocha -R dot --check-leaks --recursive release/dev/test/",
-		"cover": "istanbul cover _mocha     -- --check-leaks --recursive release/dev/test/",
+		"unit":
+			"mocha -R dot --check-leaks --recursive release/dev/test/",
 
 		"test":
 			"npm run st && npm run t && npm run release/dev && npm run unit",
 
-
-		"coveralls":
-			"istanbul-coveralls"
+		"cover": "nyc -r lcov -r text -x release/dev/test/ npm run unit",
+		"coveralls": "istanbul-coveralls"
 	},
 
 	"dependencies":
@@ -135,8 +134,8 @@
 		"mocha":
 			"4",
 
-		"istanbul":
-			"0.4",
+		"nyc":
+			"15",
 
 		"istanbul-coveralls":
 			"1"
