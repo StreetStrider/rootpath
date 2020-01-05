@@ -93,8 +93,14 @@
 		"@types/node":
 			"13",
 
-		"@types/lodash":
-			"4.14",
+		"@types/find-root":
+			"1",
+
+		"@types/globjoin":
+			"0.1",
+
+		"@types/lodash.flattendeep":
+			"4",
 
 		"@types/mocha":
 			"5",
