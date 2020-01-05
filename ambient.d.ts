@@ -1,11 +1,4 @@
 
-declare module 'path'
-{
-	import * as node__path from 'path'
-
-	export default node__path
-}
-
 declare module 'find-root'
 {
 	type FindRootCheckFn = (dir: string) => boolean

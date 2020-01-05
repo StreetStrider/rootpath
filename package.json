@@ -91,7 +91,7 @@
 	"devDependencies":
 	{
 		"@types/node":
-			"8",
+			"13",
 
 		"@types/lodash":
 			"4.14",

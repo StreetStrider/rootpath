@@ -1,12 +1,12 @@
 {
 	"files":
 	[
+		"ambient.d.ts",
+
 		"rootpath.ts",
 		"rootpath.d.ts",
 
-		"test/rootpath.ts",
-
-		"ambient.d.ts"
+		"test/rootpath.ts"
 	],
 	"compilerOptions":
 	{
@@ -20,6 +20,7 @@
 		"allowJs": true,
 		"checkJs": false,
 
-		"moduleResolution": "Node"
+		"moduleResolution": "Node",
+		"allowSyntheticDefaultImports": true
 	}
 }
