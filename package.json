@@ -31,7 +31,8 @@
 		"*.js",
 		"*.ts",
 		"*.flow",
-		"!.eslintrc.js"
+		"!.eslintrc.js",
+		"!ambient.d.ts"
 	],
 
 	"scripts":
