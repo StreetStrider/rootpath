@@ -1,6 +1,6 @@
 {
 	"name":    "@streetstrider/rootpath",
-	"version": "2.0.5-pre1",
+	"version": "2.0.5",
 
 	"description": "pivot for path hierarchy",
 
