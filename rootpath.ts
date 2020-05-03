@@ -1,23 +1,23 @@
 /* eslint complexity: [ 2, 6 ] */
 
-; export type Rootpath$Segment = string | $Rootpath
+export type Rootpath$Segment = (string | $Rootpath)
 
-; interface Recursive<T> extends Array<T|Recursive<T>> {}
+interface Recursive<T> extends Array<T|Recursive<T>> {}
 
-; export type Rootpath$Path = Rootpath$Segment | Recursive<Rootpath$Segment>
+export type Rootpath$Path = (Rootpath$Segment | Recursive<Rootpath$Segment>)
 
-; export interface Rootpath$Resolver
+export interface Rootpath$Resolver
 {
 	(...args: Rootpath$Path[]): string,
 }
 
-; export interface Rootpath$Constructor
+export interface Rootpath$Constructor
 {
 	new (...args: Rootpath$Path[]): $Rootpath,
-	(...args: Rootpath$Path[]): $Rootpath
+	(...args: Rootpath$Path[]): $Rootpath,
 }
 
-; export interface $Rootpath extends Rootpath$Resolver
+export interface $Rootpath extends Rootpath$Resolver
 {
 	path: string,
 	resolve: Rootpath$Resolver,
