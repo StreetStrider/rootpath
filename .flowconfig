@@ -2,6 +2,3 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/.*
 <PROJECT_ROOT>/release/.*
-
-[options]
-suppress_comment= \\(.\\|\n\\)*\\@flow-off
