@@ -118,13 +118,16 @@
 
 
 		"eslint":
-			"6",
+			"7",
 
 		"@typescript-eslint/parser":
-			"2",
+			"4",
 
 		"js-outlander":
-			"StrangeTransistor/js-outlander#2.7.0",
+			"StrangeTransistor/js-outlander#2.9.0",
+
+		"@typescript-eslint/eslint-plugin":
+			"4",
 
 
 		"flow-bin":
