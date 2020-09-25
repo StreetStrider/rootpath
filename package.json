@@ -92,7 +92,7 @@
 	"devDependencies":
 	{
 		"@types/node":
-			"13",
+			"14",
 
 		"@types/find-root":
 			"1",
@@ -138,7 +138,7 @@
 			"3.8",
 
 		"dtslint":
-			"3",
+			"4",
 
 
 		"mocha":
