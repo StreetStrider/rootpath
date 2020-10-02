@@ -120,11 +120,11 @@
 		"eslint":
 			"7",
 
+		"js-outlander":
+			"StrangeTransistor/js-outlander#2.10.0",
+
 		"@typescript-eslint/parser":
 			"4",
-
-		"js-outlander":
-			"StrangeTransistor/js-outlander#2.9.0",
 
 		"@typescript-eslint/eslint-plugin":
 			"4",
