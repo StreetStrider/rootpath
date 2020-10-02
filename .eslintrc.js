@@ -16,7 +16,10 @@ module.exports =
 
 	rules:
 	{
+		'no-unused-vars': 0,
 		'@typescript-eslint/no-unused-vars': 2,
-		// '@typescript-eslint/no-unused-expressions': [ 2, { allowShortCircuit: true } ],
+
+		'no-unused-expressions': 0,
+		'@typescript-eslint/no-unused-expressions': 2,
 	},
 }

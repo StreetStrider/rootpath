@@ -501,7 +501,7 @@ describe('Rootpath', () =>
 			var X = Rootpath('x')
 			var x = X()
 
-			// eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+			// eslint-disable-next-line @typescript-eslint/no-unused-vars
 			var Y = Rootpath('y')
 
 			eq(x, X())
