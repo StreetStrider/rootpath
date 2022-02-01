@@ -92,7 +92,7 @@
 	"devDependencies":
 	{
 		"@types/node":
-			"14",
+			"17",
 
 		"@types/find-root":
 			"1",
@@ -111,7 +111,7 @@
 			"4",
 
 		"metalpipe":
-			"^1.1",
+			"https://github.com/StrangeTransistor/metalpipe.git#bccfd822c84892bca6aa3ac9c489dd9f1db0dea1",
 
 		"rollup":
 			"2",
@@ -124,14 +124,14 @@
 			"StrangeTransistor/js-outlander#2.10.0",
 
 		"@typescript-eslint/parser":
-			"4",
+			"5",
 
 		"@typescript-eslint/eslint-plugin":
-			"4",
+			"5",
 
 
 		"flow-bin":
-			"0.134",
+			"0.170",
 
 
 		"typescript":
