@@ -28,11 +28,9 @@
 	"main": "rootpath",
 	"files":
 	[
-		"*.js",
-		"*.ts",
-		"*.flow",
-		"!.eslintrc.js",
-		"!ambient.d.ts"
+		"rootpath.js",
+		"rootpath.d.ts",
+		"rootpath.js.flow"
 	],
 
 	"scripts":
