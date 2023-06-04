@@ -14,13 +14,11 @@
 		"pretty": true,
 
 		"strict": true,
-		"target": "ES6",
-		"lib":  [ "ES6" ],
 
-		"allowJs": true,
-		"checkJs": false,
+		"lib":  [ "es6" ],
+		"target": "es6",
 
-		"moduleResolution": "Node",
+		"moduleResolution": "node",
 		"allowSyntheticDefaultImports": true
 	}
 }
