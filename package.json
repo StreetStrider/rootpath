@@ -1,6 +1,6 @@
 {
 	"name":    "@streetstrider/rootpath",
-	"version": "2.0.5",
+	"version": "2.0.6",
 
 	"description": "pivot for path hierarchy",
 
@@ -112,7 +112,7 @@
 			"https://github.com/StrangeTransistor/metalpipe.git#bccfd822c84892bca6aa3ac9c489dd9f1db0dea1",
 
 		"rollup":
-			"2",
+			"3",
 
 
 		"eslint":
