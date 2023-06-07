@@ -25,10 +25,9 @@
 		"node": ">=6"
 	},
 
-	"main": "rootpath",
+	"main": "rootpath.js",
 	"files":
 	[
-		"rootpath.js",
 		"rootpath.d.ts",
 		"rootpath.js.flow"
 	],
@@ -109,7 +108,7 @@
 			"4",
 
 		"metalpipe":
-			"https://github.com/StrangeTransistor/metalpipe.git#bccfd822c84892bca6aa3ac9c489dd9f1db0dea1",
+			"https://github.com/StrangeTransistor/metalpipe.git#688a3bf46d3716d2a48a5428de1f2d961339dd10",
 
 		"rollup":
 			"3",
@@ -133,7 +132,7 @@
 
 
 		"typescript":
-			"5.0",
+			"5.1.3",
 
 		"dtslint":
 			"4",
