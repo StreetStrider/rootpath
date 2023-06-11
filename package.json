@@ -89,7 +89,7 @@
 	"devDependencies":
 	{
 		"@types/node":
-			"17",
+			"20",
 
 		"@types/find-root":
 			"1",
