@@ -3,7 +3,7 @@ import { join } from 'path'
 
 import { deepEqual as eq } from 'assert'
 
-import Rootpath from '../rootpath'
+import Rootpath from '../rootpath.js'
 
 describe('Rootpath', () =>
 {

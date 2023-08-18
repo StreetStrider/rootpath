@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import Rootpath from '../rootpath'
+import Rootpath from '../rootpath.js'
+
+import { $Rootpath } from '../rootpath.js'
 
 var root = Rootpath()
 
@@ -43,3 +45,5 @@ good(void 0)
 
 // $ExpectError
 good([ null, false, 1 ])
+
+var copy: $Rootpath = root

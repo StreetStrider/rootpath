@@ -1,4 +1,7 @@
 
+declare namespace Rootpath
+{
+
 export type Rootpath$Segment = string | $Rootpath;
 
 interface Recursive<T> extends Array<T|Recursive<T>> {}
@@ -26,6 +29,8 @@ export interface $Rootpath extends Rootpath$Resolver
 	toString(): string,
 }
 
-declare const Rootpath: Rootpath$Constructor
+}
 
-export default Rootpath
+declare const Rootpath: Rootpath.Rootpath$Constructor
+
+export = Rootpath
