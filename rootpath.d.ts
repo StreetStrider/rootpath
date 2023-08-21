@@ -22,10 +22,11 @@ export interface $Rootpath extends Rootpath$Resolver
 {
 	path: string,
 	resolve: Rootpath$Resolver,
-	relative(to: Rootpath$Segment): string,
+	relative (to: Rootpath$Segment): string,
 	partial: Rootpath$Constructor,
-	contains(path: Rootpath$Segment): boolean,
-	toString(): string,
+	contains (it: Rootpath$Segment): boolean,
+	guard (inside: Rootpath$Segment): void,
+	toString (): string,
 }
 
 }

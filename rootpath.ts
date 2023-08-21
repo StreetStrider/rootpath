@@ -21,10 +21,11 @@ export interface $Rootpath extends Rootpath$Resolver
 {
 	path: string,
 	resolve: Rootpath$Resolver,
-	relative(to: Rootpath$Segment): string,
+	relative (to: Rootpath$Segment): string,
 	partial: Rootpath$Constructor,
-	contains(path: Rootpath$Segment): boolean,
-	toString(): string,
+	contains (it: Rootpath$Segment): boolean,
+	guard (inside: Rootpath$Segment): void,
+	toString (): string,
 }
 
 
@@ -61,9 +62,19 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 		return Rootpath(rootpath(args))
 	}))
 
-	def(rootpath, 'contains', val(function contains (it: Rootpath$Segment)
+	function contains (it: Rootpath$Segment)
 	{
 		return pathextra.contains(rootpath(), String(it))
+	}
+
+	def(rootpath, 'contains', val(contains))
+
+	def(rootpath, 'guard', val(function guard (inside: Rootpath$Segment)
+	{
+		if (! contains(inside))
+		{
+			throw new TypeError(`rootpath/must_be_contained`)
+		}
 	}))
 
 	def(rootpath, 'toString', val(function toString ()

@@ -2,6 +2,7 @@
 import { join } from 'node:path'
 
 import { deepEqual as eq } from 'node:assert'
+import { throws } from 'node:assert'
 
 import Rootpath from '../rootpath.js'
 
@@ -477,6 +478,29 @@ describe('Rootpath', () =>
 			eq(X.contains(Y.partial('a/b')()), true)
 			eq(X.contains(Y.partial('a/b').resolve()), true)
 			eq(X.contains(Y.partial('a/b')), true)
+		})
+	})
+
+	describe('Rootpath#guard', () =>
+	{
+		it('asserts that path inside root', () =>
+		{
+			let rootpath = new Rootpath('/tmp/a/b')
+			let path = rootpath('c/d')
+			rootpath.guard(path)
+		})
+
+		it('asserts that path inside root (throw)', () =>
+		{
+			let rootpath = new Rootpath('/tmp/a/b')
+			let path = rootpath('../d')
+
+			// eslint-disable-next-line max-nested-callbacks
+			throws(() =>
+			{
+				rootpath.guard(path)
+			}
+			, { name: 'TypeError', message: 'rootpath/must_be_contained' })
 		})
 	})
 
