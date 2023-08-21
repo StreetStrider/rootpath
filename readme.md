@@ -1,9 +1,6 @@
 # rootpath
 
-[![Travis](https://img.shields.io/travis/StreetStrider/rootpath.svg?style=flat-square)](https://travis-ci.org/StreetStrider/rootpath)
-[![Coveralls](https://img.shields.io/coveralls/StreetStrider/rootpath.svg?style=flat-square)](https://coveralls.io/github/StreetStrider/rootpath)
 [![ISC licensed](http://img.shields.io/badge/license-ISC-brightgreen.svg?style=flat-square)](#license)
-[![flowtype](http://img.shields.io/badge/flow-type-EBBF3A.svg?style=flat-square)](#types)
 [![typescript](http://img.shields.io/badge/type-script-0074C1.svg?style=flat-square)](#types)
 [![npm|@streetstrider/rootpath](http://img.shields.io/badge/npm-@streetstrider/rootpath-CB3837.svg?style=flat-square)](https://www.npmjs.org/package/@streetstrider/rootpath)
 
