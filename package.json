@@ -72,19 +72,19 @@
 	"dependencies":
 	{
 		"find-root":
-			"1",
+			"1.1.0",
 
 		"lodash.flattendeep":
-			"4.4",
+			"4.4.0",
 
 		"globjoin":
-			"0.1",
+			"0.1.4",
 
 		"node-path-extras":
-			"0.4",
+			"0.4.1",
 
 		"def-prop":
-			"2"
+			"2.0.2"
 	},
 	"devDependencies":
 	{
