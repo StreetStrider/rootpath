@@ -1,12 +1,11 @@
+// TODO: type naming overhaul
 
 declare namespace Rootpath
 {
 
-export type Rootpath$Segment = string | $Rootpath;
+export type Rootpath$Segment = (string | $Rootpath)
 
-interface Recursive<T> extends Array<T|Recursive<T>> {}
-
-export type Rootpath$Path = Rootpath$Segment | Recursive<Rootpath$Segment>;
+export type Rootpath$Path = (Rootpath$Segment | Rootpath$Path[])
 
 export interface Rootpath$Resolver
 {
