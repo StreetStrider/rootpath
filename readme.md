@@ -20,7 +20,7 @@ project/
 If you want to address config from App you could use composition of `__dirname`, path joining and relative paths. This becomes messy and uncontrollable very quickly. There's a place for an abstraction which would encapsulate point in fs hierarchy and allow to construct paths and address files in clean and easy manner.
 
 App.js:
-```js
+```javascript
 import rootpath from '@streetstrider/rootpath'
 
 function App ()
@@ -37,6 +37,9 @@ function App ()
   this.fromroot = rootpath([ __dirname, '..' ])
   /* or */
   this.fromroot = rootpath(__dirname + '/..')
+  /* or in ESM you can take pinpoint dirname of import.meta.url's path */
+  /* file:/// is handled correctly */
+  this.fromroot = rootpath(import.meta.url)
 
   /* on this point `fromroot` becomes a pivot for addressing */
   this.config = load(this.fromroot('cfg', 'config.json'))
@@ -53,7 +56,7 @@ function App ()
   /* this creates new instance of rootpath, focused on `data/model` */
 
   /* get path in space of rootpath */
-  var relpath = this.fromroot.relative(some_abspath)
+  const relpath = this.fromroot.relative(some_abspath)
 }
 ```
 
@@ -91,10 +94,10 @@ rootpath.relative(path)
 roootpath.contains(path)
 
 // root path of instance can be received via String/toString
-var base = String(rootpath)
+const base = String(rootpath)
 
 // one instance can be directly used as base for another
-var rootpath = Rootpath(another_rootpath, 'some/path')
+const rootpath = Rootpath(another_rootpath, 'some/path')
 ```
 
 ## types

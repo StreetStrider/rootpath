@@ -1,4 +1,6 @@
 /* eslint complexity: [ 2, 6 ] */
+// TODO: type naming overhaul
+// TODO: consider fixing glob double negation on rootpath's side
 
 export type Rootpath$Segment = (string | $Rootpath)
 
@@ -32,11 +34,12 @@ import val from 'def-prop/val'
 import path from 'path'
 import pathextra from 'node-path-extras'
 
+
 function Rootpath (...args: Rootpath$Path[]): $Rootpath
 {
-	var base = determine(args)
+	const base = determine(args)
 
-	var rootpath = function rootpath (...args: Rootpath$Path[])
+	const rootpath = function rootpath (...args: Rootpath$Path[])
 	{
 		return resolve(base, args)
 	}
@@ -78,19 +81,28 @@ import find_root from 'find-root'
 
 function determine (args: Rootpath$Path[])
 {
-	if (args.length)
+	if (! args.length)
 	{
-		return resolve(args)
+		try
+		{
+			return find_root(process.cwd())
+		}
+		catch (e)
+		{
+			return resolve()
+		}
 	}
-	// eslint-disable-next-line curly
-	else try
+
+	if (args.length === 1)
 	{
-		return find_root(process.cwd())
+		const arg = String(args[0])
+		if (arg.startsWith('file://'))
+		{
+			return path.dirname(arg.slice(7))
+		}
 	}
-	catch (e)
-	{
-		return resolve()
-	}
+
+	return resolve(args)
 }
 
 
@@ -101,11 +113,11 @@ function resolve (...args: Rootpath$Path[]): string
 {
 	args = (flatten(args) as Rootpath$Path[])
 
-	var resolved = ''
+	let resolved = ''
 
 	while (args.length && ! is_absolute(resolved))
 	{
-		var arg = String(args.pop())
+		const arg = String(args.pop())
 		resolved = globjoin(arg, resolved)
 	}
 

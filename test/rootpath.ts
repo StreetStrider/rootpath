@@ -1,7 +1,7 @@
 
-import { join } from 'path'
+import { join } from 'node:path'
 
-import { deepEqual as eq } from 'assert'
+import { deepEqual as eq } from 'node:assert'
 
 import Rootpath from '../rootpath.js'
 
@@ -201,6 +201,12 @@ describe('Rootpath', () =>
 				let rootpath = Rootpath('**', '!b/', '*/', 'c/')
 				eq(rootpath.path, '!/tmp/**/b/*/c')
 			}
+		})
+		it('can construct with file:// schema', () =>
+		{
+			let meta = 'file:///tmp/file.mjs'
+			let rootpath = Rootpath(meta)
+			eq(rootpath.path, '/tmp')
 		})
 	})
 
