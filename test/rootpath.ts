@@ -504,6 +504,38 @@ describe('Rootpath', () =>
 		})
 	})
 
+	describe('Rootpath#over', () =>
+	{
+		it('works', () =>
+		{
+			var rootpath = Rootpath()
+
+			eq(rootpath.over(
+			[
+				'a',
+				'.',
+				'..',
+				[ 'a', 'b' ],
+				[ 'a', [ 'b', 'c' ], [ 'd' ]],
+				'/def',
+				[ 'abc', '/def' ],
+				'**',
+				'!**',
+			]),
+			[
+				'/tmp/a',
+				'/tmp',
+				'/',
+				'/tmp/a/b',
+				'/tmp/a/b/c/d',
+				'/def',
+				'/def',
+				'/tmp/**',
+				'!/tmp/**',
+			])
+		})
+	})
+
 	describe('Rootpath#toString()', () =>
 	{
 		it('can be converted to string', () =>

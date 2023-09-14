@@ -46,4 +46,10 @@ good(void 0)
 // $ExpectError
 good([ null, false, 1 ])
 
+// $ExpectError
+good.over('a', 'b', 'c')
+
+// $ExpectError
+good.over([[ null, false, 1 ]])
+
 var copy: $Rootpath = root

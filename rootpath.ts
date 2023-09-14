@@ -25,6 +25,7 @@ export interface $Rootpath extends Rootpath$Resolver
 	partial: Rootpath$Constructor,
 	contains (it: Rootpath$Segment): boolean,
 	guard (inside: Rootpath$Segment): void,
+	over (each: Rootpath$Path[]): string[],
 	toString (): string,
 }
 
@@ -75,6 +76,11 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 		{
 			throw new TypeError(`rootpath/must_be_contained`)
 		}
+	}))
+
+	def(rootpath, 'over', val(function over (each: Rootpath$Path[])
+	{
+		return each.map(path => resolve(path))
 	}))
 
 	def(rootpath, 'toString', val(function toString ()

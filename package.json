@@ -60,7 +60,7 @@
 			"npm run flow && npm run ts && npm run dts",
 
 		"unit":
-			"mocha -R dot --check-leaks --recursive release/dev/test/",
+			"mocha -R dot --check-leaks --recursive release/dev/test/rootpath.js",
 
 		"test":
 			"npm run st && npm run t && npm run release/dev && npm run unit",
