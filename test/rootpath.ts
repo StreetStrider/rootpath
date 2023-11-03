@@ -462,13 +462,14 @@ describe('Rootpath', () =>
 		{
 			var X = Rootpath('/tmp/a')
 
-			eq(X.contains('/tmp/a'), false)
+			eq(X.contains('/tmp/a'), true)
 			eq(X.contains(X('/')), false)
-			eq(X.contains(X('')), false)
-			eq(X.contains(X()), false)
-			eq(X.contains(X() + '/'), false)
+			eq(X.contains(X('')), true)
+			eq(X.contains(X()), true)
+			eq(X.contains(X() + '/'), true)
 
 			eq(X.contains('/tmp/a/b'), true)
+			eq(X.contains('/tmp/a/b/..'), true)
 			eq(X.contains('/tmp/a/b/../..'), false)
 			eq(X.contains('/tmp/c'), false)
 			eq(X.contains('/tmp'), false)

@@ -65,6 +65,7 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 	function contains (it: Rootpath$Segment)
 	{
 		it = resolve(it)
+		if (it === base) return true
 		return (it.indexOf(base) === 0) && (it.slice(base.length)[0] === path.sep)
 	}
 
