@@ -80,9 +80,6 @@
 		"globjoin":
 			"0.1.4",
 
-		"node-path-extras":
-			"0.4.1",
-
 		"def-prop":
 			"2.0.2"
 	},

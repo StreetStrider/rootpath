@@ -1,8 +1,6 @@
 {
 	"files":
 	[
-		"ambient.d.ts",
-
 		"rootpath.ts",
 		"rootpath.d.ts",
 

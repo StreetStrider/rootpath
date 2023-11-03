@@ -3,9 +3,7 @@
 
 	"files":
 	[
-		"types.ts",
-
-		"../ambient.d.ts"
+		"types.ts"
 	],
 
 	"compilerOptions":

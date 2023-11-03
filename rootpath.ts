@@ -34,7 +34,6 @@ import def from 'def-prop'
 import val from 'def-prop/val'
 
 import path from 'path'
-import pathextra from 'node-path-extras'
 
 
 function Rootpath (...args: Rootpath$Path[]): $Rootpath
@@ -65,7 +64,8 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 
 	function contains (it: Rootpath$Segment)
 	{
-		return pathextra.contains(rootpath(), String(it))
+		it = resolve(it)
+		return (it.indexOf(base) === 0) && (it.slice(base.length)[0] === path.sep)
 	}
 
 	def(rootpath, 'contains', val(contains))
