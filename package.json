@@ -105,10 +105,10 @@
 			"4",
 
 		"metalpipe":
-			"https://github.com/StrangeTransistor/metalpipe.git#688a3bf46d3716d2a48a5428de1f2d961339dd10",
+			"https://github.com/StrangeTransistor/metalpipe.git#6909d53089c861bdcfcf6aed6f57936322ee2712",
 
 		"rollup":
-			"3",
+			"4",
 
 
 		"eslint":
