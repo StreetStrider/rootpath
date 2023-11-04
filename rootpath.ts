@@ -24,7 +24,7 @@ export interface $Rootpath extends Rootpath$Resolver
 	relative (to: Rootpath$Segment): string,
 	partial: Rootpath$Constructor,
 	contains (it: Rootpath$Segment): boolean,
-	guard (inside: Rootpath$Segment): void,
+	guard (inside: Rootpath$Segment, fn_error?: Function): void,
 	over (each: Rootpath$Path[]): string[],
 	toString (): string,
 }
@@ -71,12 +71,11 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 
 	def(rootpath, 'contains', val(contains))
 
-	def(rootpath, 'guard', val(function guard (inside: Rootpath$Segment)
+	def(rootpath, 'guard', val(function guard (inside: Rootpath$Segment, fn_error?: Function)
 	{
-		if (! contains(inside))
-		{
-			throw new TypeError(`rootpath/must_be_contained`)
-		}
+		if (contains(inside)) return
+		const e = fn_error?.() ?? new TypeError(`rootpath/must_be_contained`)
+		throw e
 	}))
 
 	def(rootpath, 'over', val(function over (each: Rootpath$Path[])

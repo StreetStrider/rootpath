@@ -511,6 +511,20 @@ describe('Rootpath', () =>
 			}
 			, { name: 'TypeError', message: 'rootpath/must_be_contained' })
 		})
+
+		it('asserts that path inside root (custom throw)', () =>
+		{
+			let rootpath = new Rootpath('/tmp/a/b')
+			let path = rootpath('../d')
+
+			// eslint-disable-next-line max-nested-callbacks
+			throws(() =>
+			{
+				// eslint-disable-next-line max-nested-callbacks
+				rootpath.guard(path, () => ReferenceError('custom'))
+			}
+			, { name: 'ReferenceError', message: 'custom' })
+		})
 	})
 
 	describe('Rootpath#over', () =>
