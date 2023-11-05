@@ -51,19 +51,23 @@ function App ()
   /* you also can use `rootpath#resolve` as an explicit analogue */
   this.config   = load(this.fromroot.resolve('cfg', 'config.json')
 
-  /* if you need to create concretized view onto fs, use rootpath#partial: */
+  /* if you need to create concretized view onto fs, use `rootpath#partial`: */
   this.someModel = new SomeModel(this.fromroot.partial('data/model'))
   /* this creates new instance of rootpath, focused on `data/model` */
 
-  /* get path in space of rootpath */
+  /* get path in the space of rootpath */
   const relpath = this.fromroot.relative(some_abspath)
+
+  /* check if some path is not above rootpath */
+  this.fromroot.contains(some_path)
+
+  /* assert that some path not above rootpath */
+  this.fromroot.guard(some_path)
+
+  /* map paths array over rootpath */
+  this.fromroot.over(paths)
 }
 ```
-
-## new in v2
-* `rootpath()` without arguments now works as [`find-root`](https://www.npmjs.com/package/find-root) and use `process.cwd()` as fallback.
-* support TypeScript and Flow.
-* support glob expressions (including glob negation).
 
 ## install
 ```
