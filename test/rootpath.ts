@@ -557,6 +557,16 @@ describe('Rootpath', () =>
 				'!/tmp/**',
 			])
 		})
+
+		it('works with Iterable', () =>
+		{
+			var rootpath = Rootpath()
+
+			eq(
+				rootpath.over(new Set([ 'a', [ 'b', 'c' ], 'd' ])),
+				[ '/tmp/a', '/tmp/b/c', '/tmp/d' ],
+			)
+		})
 	})
 
 	describe('Rootpath#toString()', () =>

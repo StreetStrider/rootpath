@@ -26,7 +26,7 @@ export interface $Rootpath extends Rootpath$Resolver
 	partial: Rootpath$Constructor,
 	contains (it: Rootpath$Segment): boolean,
 	guard (inside: Rootpath$Segment, fn_error?: Function): void,
-	over (each: Rootpath$Path[]): string[],
+	over (each: Iterable<Rootpath$Path>): string[],
 	toString (): string,
 }
 

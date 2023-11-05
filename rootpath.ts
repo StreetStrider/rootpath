@@ -25,7 +25,7 @@ export interface $Rootpath extends Rootpath$Resolver
 	partial: Rootpath$Constructor,
 	contains (it: Rootpath$Segment): boolean,
 	guard (inside: Rootpath$Segment, fn_error?: Function): void,
-	over (each: Rootpath$Path[]): string[],
+	over (each: Iterable<Rootpath$Path>): string[],
 	toString (): string,
 }
 
@@ -78,9 +78,9 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 		throw e
 	}))
 
-	def(rootpath, 'over', val(function over (each: Rootpath$Path[])
+	def(rootpath, 'over', val(function over (each: Iterable<Rootpath$Path>)
 	{
-		return each.map(path => resolve(path))
+		return [ ...each ].map(path => resolve(path))
 	}))
 
 	def(rootpath, 'toString', val(function toString ()

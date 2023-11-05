@@ -64,7 +64,7 @@ function App ()
   /* assert that some path not above rootpath */
   this.fromroot.guard(some_path)
 
-  /* map paths array over rootpath */
+  /* map paths iterable over rootpath */
   this.fromroot.over(paths)
 }
 ```
