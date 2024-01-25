@@ -108,4 +108,4 @@ const rootpath = Rootpath(another_rootpath, 'some/path')
 We're providing built-in [TypeScript](http://typescriptlang.org/) & [Flow](https://flowtype.org/) type definitions.
 
 ## license
-ISC. © Strider, 2013 — 2023.
+ISC. © Strider, 2013 — 2024.
