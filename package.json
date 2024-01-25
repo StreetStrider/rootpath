@@ -1,4 +1,6 @@
 {
+	"private": true,
+
 	"name":    "@streetstrider/rootpath",
 	"version": "2.1.0",
 
