@@ -462,6 +462,8 @@ describe('Rootpath', () =>
 		{
 			var X = Rootpath('/tmp/a')
 
+			process.chdir('/tmp/quirk')
+
 			eq(X.contains('/tmp/a'), true)
 			eq(X.contains(X('/')), false)
 			eq(X.contains(X('')), true)
@@ -479,6 +481,8 @@ describe('Rootpath', () =>
 		{
 			var X = Rootpath('/tmp/a')
 			var Y = Rootpath('/tmp')
+
+			process.chdir('/tmp/quirk')
 
 			eq(X.contains(Y()), false)
 			eq(X.contains(Y.resolve()), false)
@@ -533,6 +537,8 @@ describe('Rootpath', () =>
 		{
 			var rootpath = Rootpath()
 
+			process.chdir('/tmp/quirk')
+
 			eq(rootpath.over(
 			[
 				'a',
@@ -561,6 +567,8 @@ describe('Rootpath', () =>
 		it('works with Iterable', () =>
 		{
 			var rootpath = Rootpath()
+
+			process.chdir('/tmp/quirk')
 
 			eq(
 				rootpath.over(new Set([ 'a', [ 'b', 'c' ], 'd' ])),

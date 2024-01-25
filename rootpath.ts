@@ -80,7 +80,7 @@ function Rootpath (...args: Rootpath$Path[]): $Rootpath
 
 	def(rootpath, 'over', val(function over (each: Iterable<Rootpath$Path>)
 	{
-		return [ ...each ].map(path => resolve(path))
+		return [ ...each ].map(path => rootpath(path))
 	}))
 
 	def(rootpath, 'toString', val(function toString ()
