@@ -1,5 +1,6 @@
 
 import { join } from 'node:path'
+import { mkdirSync as mkdir } from 'node:fs'
 
 import { deepEqual as eq } from 'node:assert'
 import { throws } from 'node:assert'
@@ -9,6 +10,11 @@ import Rootpath from '../rootpath.js'
 describe('Rootpath', () =>
 {
 	var dir: string = ''
+
+	before(() =>
+	{
+		mkdir('/tmp/quirkpath')
+	})
 
 	beforeEach(() =>
 	{
@@ -462,7 +468,7 @@ describe('Rootpath', () =>
 		{
 			var X = Rootpath('/tmp/a')
 
-			process.chdir('/tmp/quirk')
+			process.chdir('/tmp/quirkpath')
 
 			eq(X.contains('/tmp/a'), true)
 			eq(X.contains(X('/')), false)
@@ -482,7 +488,7 @@ describe('Rootpath', () =>
 			var X = Rootpath('/tmp/a')
 			var Y = Rootpath('/tmp')
 
-			process.chdir('/tmp/quirk')
+			process.chdir('/tmp/quirkpath')
 
 			eq(X.contains(Y()), false)
 			eq(X.contains(Y.resolve()), false)
@@ -537,7 +543,7 @@ describe('Rootpath', () =>
 		{
 			var rootpath = Rootpath()
 
-			process.chdir('/tmp/quirk')
+			process.chdir('/tmp/quirkpath')
 
 			eq(rootpath.over(
 			[
@@ -568,7 +574,7 @@ describe('Rootpath', () =>
 		{
 			var rootpath = Rootpath()
 
-			process.chdir('/tmp/quirk')
+			process.chdir('/tmp/quirkpath')
 
 			eq(
 				rootpath.over(new Set([ 'a', [ 'b', 'c' ], 'd' ])),
